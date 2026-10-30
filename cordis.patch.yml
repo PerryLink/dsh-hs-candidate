@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-hs-candidate
+      name: '@perrylink/dsh-hs-candidate'
