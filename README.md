@@ -52,6 +52,36 @@ HS Top3 候选、12 要素完整性、RVC 与税则版本门。 安装：`dsh pl
 
 MIT HS lookup sample; `ACCEPTANCE.csv` lists 5 public checks.
 
+## 中文说明
+
+HS Top3 候选、12 要素完整性、RVC 检查与税则版本门。**公开/合成、alpha、非 GA**；候选码不是法律归类。
+
+### 安装
+
+```sh
+dsh plugin --profile <profile> add dsh-hs-candidate
+```
+
+### 工具
+
+| 工具 | 作用 |
+|---|---|
+| `hs.elements` | 检查商品描述的 12 要素完整性 |
+| `hs.classify` | 从公开税则表返回 Top3 候选 |
+| `hs.lookup` | 查询公开 HS 表行 |
+| `hs.tariff_version` | 记录/校验税则表版本 |
+| `hs.rvc_check` | 简单区域价值成分比例 |
+
+### 输入 / 输出
+
+输入商品描述与税则版本；输出候选码、缺失要素和简单 RVC 比例。候选只作人工复核证据。
+
+### 边界
+
+- 不是法律归类、海关裁定、原产地判定或申报。
+- 不做四张清单筛查、不接报关行、无 Client。
+- 只有公开 HS 样例，没有客户报关数据。
+
 ## Development
 
 ```sh
