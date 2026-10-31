@@ -1,0 +1,38 @@
+[
+  {
+    "code": "01012100",
+    "description": "Live horses, asses, mules and hinnies: — Horses: — Purebred breeding animals",
+    "general": "Free",
+    "chapter": "01"
+  },
+  {
+    "code": "01012900",
+    "description": "Live horses, asses, mules and hinnies: — Horses: — Other",
+    "general": "Free",
+    "chapter": "01"
+  },
+  {
+    "code": "01022100",
+    "description": "Live bovine animals: — Cattle: — Purebred breeding animals",
+    "general": "Free",
+    "chapter": "01"
+  },
+  {
+    "code": "01022920",
+    "description": "Live bovine animals: — Cattle: — Other: — Cows imported specially for dairy purposes",
+    "general": "Free",
+    "chapter": "01"
+  },
+  {
+    "code": "01022940",
+    "description": "Live bovine animals: — Cattle: — Other: — Other",
+    "general": "1¢/kg",
+    "chapter": "01"
+  },
+  {
+    "code": "01023100",
+    "description": "Live bovine animals: — Buffalo: — Purebred breeding animals",
+    "general": "Free",
+    "chapter": "01"
+  }
+]

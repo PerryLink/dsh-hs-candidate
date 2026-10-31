@@ -3,3 +3,7 @@
 - 3 tools; hs domain; test 2/2; gate 4/4. Publish pending.
 ### Publish verified
 - dist-tags latest/next alpha.0; tarball install/layer passed.
+
+### alpha.1 — public HS lookup
+
+- Added `hs.lookup`; MIT HS sample; test.

@@ -1,5 +1,5 @@
 req_id,metric,threshold,actual,script,evidence_sha256,pass
-SKU-13-A01,Top3 候选（20）,20/20,20,scripts/acceptance.mjs,fde0805202732bd4ec99e39415149c5bc7e3e21eea312d91d63d15f85a3fe0ab,true
-SKU-13-A02,缺失要素提示,>=1,12,scripts/acceptance.mjs,fde0805202732bd4ec99e39415149c5bc7e3e21eea312d91d63d15f85a3fe0ab,true
-SKU-13-A03,必填要素,12,12,scripts/acceptance.mjs,fde0805202732bd4ec99e39415149c5bc7e3e21eea312d91d63d15f85a3fe0ab,true
-SKU-13-A04,税则版本,set,1,scripts/acceptance.mjs,fde0805202732bd4ec99e39415149c5bc7e3e21eea312d91d63d15f85a3fe0ab,true
+SKU-13-A01,Top3 候选（20）,20/20,20,scripts/acceptance.mjs,152a4d8122b5a94e3252d518c2cbb5072f1d8f83aa933e448acd79590c796dba,true
+SKU-13-A02,缺失要素提示,>=1,12,scripts/acceptance.mjs,152a4d8122b5a94e3252d518c2cbb5072f1d8f83aa933e448acd79590c796dba,true
+SKU-13-A03,必填要素,12,12,scripts/acceptance.mjs,152a4d8122b5a94e3252d518c2cbb5072f1d8f83aa933e448acd79590c796dba,true
+SKU-13-A04,税则版本,set,1,scripts/acceptance.mjs,152a4d8122b5a94e3252d518c2cbb5072f1d8f83aa933e448acd79590c796dba,true

@@ -1,6 +1,6 @@
 {
   "name": "@perrylink/dsh-hs-candidate",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "HS candidate Top3 with element completeness and tariff version gate (SKU-13 S1 public/synthetic demo).",
   "type": "module",
   "main": "./lib/plugin/index.js",
