@@ -1,6 +1,6 @@
 req_id,metric,threshold,actual,script,evidence_sha256,pass,source,counted
-SKU-13-A01,Top3 候选（20）,20/20,20,scripts/acceptance.mjs,367c0762f8f56db495cef4b2e396e6ba77dce8a8c6632b915fb63f6176b262e8,true,public/synthetic,false
-SKU-13-A02,缺失要素提示,>=1,12,scripts/acceptance.mjs,367c0762f8f56db495cef4b2e396e6ba77dce8a8c6632b915fb63f6176b262e8,true,public/synthetic,false
-SKU-13-A03,必填要素,12,12,scripts/acceptance.mjs,367c0762f8f56db495cef4b2e396e6ba77dce8a8c6632b915fb63f6176b262e8,true,public/synthetic,false
-SKU-13-A04,税则版本,set,1,scripts/acceptance.mjs,367c0762f8f56db495cef4b2e396e6ba77dce8a8c6632b915fb63f6176b262e8,true,public/synthetic,false
-SKU-13-A05,RVC 简单比值,50,50,scripts/acceptance.mjs,367c0762f8f56db495cef4b2e396e6ba77dce8a8c6632b915fb63f6176b262e8,true,public/synthetic,false
+SKU-13-A01,Top3 候选（20）,20/20,20,scripts/acceptance.mjs,8c06cf38818f0d1fb21470e8124bb1d00e2bf4c44b0d028cb7cf2b2de4b6ef18,true,public/synthetic,false
+SKU-13-A02,缺失要素提示,>=1,12,scripts/acceptance.mjs,8c06cf38818f0d1fb21470e8124bb1d00e2bf4c44b0d028cb7cf2b2de4b6ef18,true,public/synthetic,false
+SKU-13-A03,必填要素,12,12,scripts/acceptance.mjs,8c06cf38818f0d1fb21470e8124bb1d00e2bf4c44b0d028cb7cf2b2de4b6ef18,true,public/synthetic,false
+SKU-13-A04,税则版本,set,1,scripts/acceptance.mjs,8c06cf38818f0d1fb21470e8124bb1d00e2bf4c44b0d028cb7cf2b2de4b6ef18,true,public/synthetic,false
+SKU-13-A05,RVC 简单比值,50,50,scripts/acceptance.mjs,8c06cf38818f0d1fb21470e8124bb1d00e2bf4c44b0d028cb7cf2b2de4b6ef18,true,public/synthetic,false
