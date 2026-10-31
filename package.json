@@ -1,6 +1,6 @@
 {
   "name": "dsh-hs-candidate",
-  "version": "0.1.0-alpha.5",
+  "version": "0.1.0-alpha.6",
   "description": "HS Top-3 candidates, 12-element completeness, RVC check and tariff version gate.",
   "type": "module",
   "main": "./lib/plugin/index.js",
