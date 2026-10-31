@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0-alpha.2 — 2026-10-31
+
+- Added `hs.rvc_check`; 5 gate rows; not a customs ruling.
+
 ## 0.1.0-alpha.1 — 2026-10-31
 
 - Added `hs.lookup` with a 6-row MIT HS sample; no filing/classification change.

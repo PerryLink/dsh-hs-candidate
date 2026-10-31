@@ -7,3 +7,7 @@
 ### alpha.1 — public HS lookup
 
 - Added `hs.lookup`; MIT HS sample; test.
+
+### alpha.2 — RVC check
+
+- Added simple RVC ratio; tests 2/2; gate 5 rows.
