@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.0-alpha.9] — 2026-11-01
+
+### Added
+
+- `hs.code_check`: structural check of an HS 2022 code — 2/4/6/8/10 digits, chapter 01-97, 98/99 reserved, dot-insensitive normalisation with distinct error codes. Read-only; it does not assert classification correctness. Verified by `node --test test/*.test.mjs` (7/7).
+
 ## [0.1.0-alpha.8] — 2026-11-01
 
 ### Changed
