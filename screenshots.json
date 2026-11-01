@@ -10,5 +10,11 @@
     "kind": "flow",
     "alt": "dsh-hs-candidate flow diagram",
     "caption": "Pipeline diagram, schematic not test evidence."
+  },
+  {
+    "path": "docs/assets/dsh-hs-candidate-capability2.png",
+    "kind": "capability",
+    "alt": "dsh-hs-candidate second capability run",
+    "caption": "Real command: node --test test/rvc-report.test.mjs — 4 tests passed, 0 failed (RVC under simple ratio, build-down and build-up formulas.) Run 2026-11-01; rendered from the captured terminal output."
   }
 ]

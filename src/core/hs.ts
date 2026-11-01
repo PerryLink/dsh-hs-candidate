@@ -39,3 +39,37 @@ export function hsCodeCheck(raw: string): HsCodeResult {
   if (chapterNumber > 97) return { ...base, valid: false, reason: 'E_HS_CODE_CHAPTER_RESERVED' }
   return base
 }
+
+export type RvcMethod = 'simple_ratio' | 'build_down' | 'build_up'
+export interface RvcInput {
+  fob_cents: number
+  non_originating_cents: number
+  domestic_value_cents: number
+  labour_overhead_cents?: number
+}
+export interface RvcMethodResult { method: RvcMethod; rvc_pct: number | null; reason?: string }
+/**
+ * Regional value content under the three formulas used in preferential rules of origin:
+ * simple ratio (domestic / FOB), build-down ((FOB - non-originating) / FOB) and
+ * build-up ((originating materials + labour/overhead) / FOB).
+ * Clean-room from the published WTO/WCO rules-of-origin formulas; not a customs ruling.
+ */
+export function rvcReport(input: RvcInput): { methods: RvcMethodResult[]; fob_cents: number; issues: string[] } {
+  const issues: string[] = []
+  const fob = input.fob_cents
+  if (!Number.isFinite(fob) || fob <= 0) {
+    issues.push('E_HS_RVC_FOB')
+    return { methods: [], fob_cents: fob, issues }
+  }
+  const pct = (numerator: number) => Math.round((numerator / fob) * 10000) / 100
+  const nonOrig = Number.isFinite(input.non_originating_cents) ? input.non_originating_cents : 0
+  const domestic = Number.isFinite(input.domestic_value_cents) ? input.domestic_value_cents : 0
+  const labour = Number.isFinite(input.labour_overhead_cents ?? 0) ? (input.labour_overhead_cents ?? 0) : 0
+  if (nonOrig < 0 || domestic < 0 || labour < 0) issues.push('E_HS_RVC_NEGATIVE')
+  const methods: RvcMethodResult[] = [
+    { method: 'simple_ratio', rvc_pct: pct(domestic) },
+    { method: 'build_down', rvc_pct: pct(fob - nonOrig) },
+    { method: 'build_up', rvc_pct: pct(domestic + labour) },
+  ]
+  return { methods, fob_cents: fob, issues }
+}

@@ -1,6 +1,12 @@
 # Changelog
 
-## [0.1.0-alpha.9] — 2026-11-01
+## [0.1.0-alpha.10] — 2026-11-01
+
+### Added
+
+- `hs.rvc_report`: regional value content under the three rules-of-origin formulas (simple ratio, build-down, build-up) with a threshold verdict. Verified by `node --test test/*.test.mjs` (11/11).
+
+## [Unreleased]
 
 ### Added
 
