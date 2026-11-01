@@ -93,7 +93,7 @@ dsh --profile <profile> --dump-config | grep dsh-hs-candidate
 
 ### Fixture-backed example
 
-Input: [`fixtures/public/mit/hs-sample.json`](fixtures/public/mit/hs-sample.json)
+Input: [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json)
 
 Command: `pnpm test`
 
@@ -142,6 +142,17 @@ pnpm build && pnpm lint && pnpm typecheck && pnpm test
 ## Related work
 
 Sibling packages and family indexes: [dsh-freight-audit](https://github.com/PerryLink/dsh-freight-audit) · [dsh-pim-lint](https://github.com/PerryLink/dsh-pim-lint)
+
+
+### Related checkers
+
+Each entry is a separate package with its own rule pack and version; install only the ones you need.
+
+| Package | Why it is relevant |
+|---|---|
+| [`dsh-hs-classify`](https://github.com/PerryLink/dsh-hs-classify) | HS hierarchy consistency for a declared classification. |
+| [`dsh-origin-rvc-check`](https://github.com/PerryLink/dsh-origin-rvc-check) | Regional value content and origin determination. |
+| [`dsh-customs-doc-check`](https://github.com/PerryLink/dsh-customs-doc-check) | Customs declaration document consistency. |
 
 - [Domain index](https://perrylink.github.io/dsh-plugins/)
 - [Checker family](https://perrylink.github.io/zh/checkers/)

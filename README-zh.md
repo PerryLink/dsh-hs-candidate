@@ -93,7 +93,7 @@ dsh --profile <profile> --dump-config | grep dsh-hs-candidate
 
 ### fixture 支撑的示例
 
-输入: [`fixtures/public/mit/hs-sample.json`](fixtures/public/mit/hs-sample.json)
+输入: [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json)
 
 命令: `pnpm test`
 
@@ -142,6 +142,8 @@ pnpm build && pnpm lint && pnpm typecheck && pnpm test
 ## 相关项目
 
 兄弟包与家族索引： [dsh-freight-audit](https://github.com/PerryLink/dsh-freight-audit) · [dsh-pim-lint](https://github.com/PerryLink/dsh-pim-lint)
+
+相关核查器（英文表）: [Related checkers](README.md#related-checkers).
 
 - [领域索引](https://perrylink.github.io/dsh-plugins/)
 - [Checker 家族](https://perrylink.github.io/zh/checkers/)

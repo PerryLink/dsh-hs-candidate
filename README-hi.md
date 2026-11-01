@@ -93,7 +93,7 @@ dsh --profile <profile> --dump-config | grep dsh-hs-candidate
 
 ### fixture-आधारित उदाहरण
 
-इनपुट: [`fixtures/public/mit/hs-sample.json`](fixtures/public/mit/hs-sample.json)
+इनपुट: [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json)
 
 कमांड: `pnpm test`
 
@@ -142,6 +142,8 @@ pnpm build && pnpm lint && pnpm typecheck && pnpm test
 ## संबंधित कार्य
 
 सहोदर पैकेज और परिवार सूचकांक: [dsh-freight-audit](https://github.com/PerryLink/dsh-freight-audit) · [dsh-pim-lint](https://github.com/PerryLink/dsh-pim-lint)
+
+संबंधित चेकर (अंग्रेज़ी तालिका): [Related checkers](README.md#related-checkers).
 
 - [डोमेन सूचकांक](https://perrylink.github.io/dsh-plugins/)
 - [चेकर परिवार](https://perrylink.github.io/zh/checkers/)
