@@ -1,8 +1,8 @@
 req_id,metric,threshold,actual,script,evidence_sha256,pass,source,counted
-SKU-13-A01,Top3 候选（20）,20/20,20,scripts/acceptance.mjs,a9217c2bc3fa9a1eb0865c4b27372e9f7116f817f9886480a7ef69d739476e5b,true,public/synthetic,false
-SKU-13-A02,缺失要素提示,>=1,12,scripts/acceptance.mjs,a9217c2bc3fa9a1eb0865c4b27372e9f7116f817f9886480a7ef69d739476e5b,true,public/synthetic,false
-SKU-13-A03,必填要素,12,12,scripts/acceptance.mjs,a9217c2bc3fa9a1eb0865c4b27372e9f7116f817f9886480a7ef69d739476e5b,true,public/synthetic,false
-SKU-13-A04,税则版本,set,1,scripts/acceptance.mjs,a9217c2bc3fa9a1eb0865c4b27372e9f7116f817f9886480a7ef69d739476e5b,true,public/synthetic,false
-SKU-13-A05,RVC 简单比值,50,50,scripts/acceptance.mjs,a9217c2bc3fa9a1eb0865c4b27372e9f7116f817f9886480a7ef69d739476e5b,true,public/synthetic,false
-SKU-13-A06,HS 编码结构,1/1,1,scripts/acceptance.mjs,a9217c2bc3fa9a1eb0865c4b27372e9f7116f817f9886480a7ef69d739476e5b,true,public/synthetic,false
-SKU-13-A07,RVC 三口径,3,3,scripts/acceptance.mjs,a9217c2bc3fa9a1eb0865c4b27372e9f7116f817f9886480a7ef69d739476e5b,true,public/synthetic,false
+SKU-13-A01,Top3 候选（20）,20/20,20,scripts/acceptance.mjs,d05eea6f9320d998e601181f7c2b7b366a1492aac4b21dca2378798688c28b4c,true,public/synthetic,false
+SKU-13-A02,缺失要素提示,>=1,12,scripts/acceptance.mjs,d05eea6f9320d998e601181f7c2b7b366a1492aac4b21dca2378798688c28b4c,true,public/synthetic,false
+SKU-13-A03,必填要素,12,12,scripts/acceptance.mjs,d05eea6f9320d998e601181f7c2b7b366a1492aac4b21dca2378798688c28b4c,true,public/synthetic,false
+SKU-13-A04,税则版本,set,1,scripts/acceptance.mjs,d05eea6f9320d998e601181f7c2b7b366a1492aac4b21dca2378798688c28b4c,true,public/synthetic,false
+SKU-13-A05,RVC 简单比值,50,50,scripts/acceptance.mjs,d05eea6f9320d998e601181f7c2b7b366a1492aac4b21dca2378798688c28b4c,true,public/synthetic,false
+SKU-13-A06,HS 编码结构,1/1,1,scripts/acceptance.mjs,d05eea6f9320d998e601181f7c2b7b366a1492aac4b21dca2378798688c28b4c,true,public/synthetic,false
+SKU-13-A07,RVC 三口径,3,3,scripts/acceptance.mjs,d05eea6f9320d998e601181f7c2b7b366a1492aac4b21dca2378798688c28b4c,true,public/synthetic,false

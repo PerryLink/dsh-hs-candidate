@@ -1,0 +1,59 @@
+{
+  "run_id": "sku13-1793598208002",
+  "scope": "SKU-13-S1",
+  "status": "partial",
+  "counted": false,
+  "note": "synthetic descriptions; user-approved public/synthetic; 0 real declarations",
+  "metrics": [
+    {
+      "i": "SKU-13-A01",
+      "m": "Top3 候选（20）",
+      "t": "20/20",
+      "a": 20,
+      "p": true
+    },
+    {
+      "i": "SKU-13-A02",
+      "m": "缺失要素提示",
+      "t": ">=1",
+      "a": 12,
+      "p": true
+    },
+    {
+      "i": "SKU-13-A03",
+      "m": "必填要素",
+      "t": "12",
+      "a": 12,
+      "p": true
+    },
+    {
+      "i": "SKU-13-A04",
+      "m": "税则版本",
+      "t": "set",
+      "a": 1,
+      "p": true
+    },
+    {
+      "i": "SKU-13-A05",
+      "m": "RVC 简单比值",
+      "t": "50",
+      "a": 50,
+      "p": true
+    },
+    {
+      "i": "SKU-13-A06",
+      "m": "HS 编码结构",
+      "t": "1/1",
+      "a": 1,
+      "p": true
+    },
+    {
+      "i": "SKU-13-A07",
+      "m": "RVC 三口径",
+      "t": "3",
+      "a": 3,
+      "p": true
+    }
+  ],
+  "pass": true
+}
