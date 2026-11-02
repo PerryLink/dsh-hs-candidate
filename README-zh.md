@@ -31,6 +31,74 @@ dsh plugin --profile <profile> add dsh-hs-candidate
 
 </div>
 
+## 一句话
+
+把产品描述变成 3 个 HS 候选编码，并检查 12 项归类要素是否填齐。
+
+## 适合 / 不适合
+
+- **适合**：20–500 条、有材质/用途/功能描述的产品清单；在正式归类前先拿候选编码，并检查要素是否缺项。
+- **不适合**：只有品名、没有材质和用途的记录；替代海关做归类裁定；直接生成报关单（本包只给候选和结构检查）。
+
+## 输入
+
+- 格式：UTF-8 CSV，表头为 `description`；另可提供 12 项要素 JSON 和编码清单 CSV。
+- 大小：单批 ≤ 1 MB（自带样例 20 行，约 1 KB）。
+- 来源：产品主数据或 Excel 导出后另存为 CSV；原文件不会被修改。
+
+## 输出
+
+- 终端摘要：描述条数、Top-3 候选编码、12 要素完整性、税则版本、编码检查结果、RVC 三口径。
+- 归类记录：写到 `$DSH_HOME/storages/hs/`；原文件不改。
+- 样例金标：`samples/quickstart/expected/result.json`（由真实运行产生）。
+
+## 示例
+
+直接复制下面这句：
+
+> 我有 20 条产品描述，帮我给出每条的前 3 个 HS 候选编码，再检查 12 项归类要素齐不齐。
+
+用自带样例复跑并核对金标：
+
+```sh
+node samples/quickstart/run.mjs --check
+```
+
+![dsh-hs-candidate quickstart 真实运行输出](docs/assets/quickstart.png)
+
+截图就是上面这条命令的真实输出；金标比对结果见 `samples/quickstart/expected/result.json`。
+
+## 权限
+
+读：用户指定的产品描述 CSV、要素 JSON、编码清单；不读其他目录
+写：$DSH_HOME/storages/hs/；不改原文件
+联网：否
+外部系统：无
+
+写文件的工具是 `hs.classify`，标 **R1**（本地写）；`hs.elements`、`hs.lookup`、`hs.tariff_version`、`hs.rvc_check`、`hs.code_check`、`hs.rvc_report` 标 **R0**（只读）。
+
+## FAQ
+
+### 1. 装不上怎么办？
+
+确认 Node `>=24.9 <25`、DSH `>=0.2.1-rc.3 <0.4.0`，再执行 `dsh plugin --profile <profile> add dsh-hs-candidate`。仍失败先看 `TROUBLESHOOTING.md` 第 1 条。
+
+### 2. 结果不对怎么办？
+
+先跑 `node samples/quickstart/run.mjs --check`；再检查描述里是否写了材质、用途和功能。候选只按关键词和公开表排序，不是海关裁定，最终编码要人工复核。
+
+### 3. 能处理我的文件吗？
+
+能。单批 ≤1 MB 的 UTF-8 CSV，本地读、本地算，不上传、不联网。真实报关单不要贴进 issue。
+
+### 4. 会改我的产品表吗？
+
+不会。只写 DSH 自己的 `$DSH_HOME/storages/hs/`，原 CSV 不动。
+
+## 版本
+
+`0.1.0-alpha.12` · 13 项测试通过（`node --test test/*.test.mjs`）。
+
 > ⭐ 如果它帮到了你，点个 star 会让下一个人更容易找到它；没有任何功能被 star 解锁。
 
 ![Workflow diagram for dsh-hs-candidate: local input, plugin, local output.](docs/assets/dsh-hs-candidate-flow.svg)
@@ -75,10 +143,12 @@ HS Top3 候选、12 要素完整性、RVC 与税则版本门。 在 DeepSeek Har
 | 工具 | 用途 | 风险 |
 |---|---|---|
 | `hs.elements` | 检查产品描述的 12 要素完整性 | R0 |
-| `hs.classify` | 从公开表中返回 Top-3 HS 候选 | R0 |
+| `hs.classify` | 从公开表中返回 Top-3 HS 候选 | R1 local write |
 | `hs.lookup` | 查询公开 HS 表中的一行 | R0 |
 | `hs.tariff_version` | 记录/校验关税表版本 | R0 |
 | `hs.rvc_check` | 计算简单的区域价值成分比例 | R0 |
+| `hs.code_check` | 检查 HS 编码结构（只读） | R0 |
+| `hs.rvc_report` | 三口径 RVC 计算（只读） | R0 |
 
 ## 快速开始
 
@@ -87,7 +157,7 @@ dsh plugin --profile <profile> add dsh-hs-candidate
 dsh --profile <profile> --dump-config | grep dsh-hs-candidate
 ```
 
-## 示例
+## 验收证据
 
 ### fixture 支撑的示例
 
@@ -130,7 +200,7 @@ pnpm build && pnpm lint && pnpm typecheck && pnpm test
 | Platforms | All; local files only |
 | 数据 | No network, no model call, no upload |
 
-## 权限与数据
+## 数据边界
 
 - 本地运行；不联网、不调用模型、不上传。
 - 只使用公开/合成 fixture；不含客户数据或客户证据。

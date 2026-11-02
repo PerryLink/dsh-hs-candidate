@@ -1,5 +1,18 @@
 [
   {
+    "path": "docs/assets/quickstart.png",
+    "kind": "quickstart",
+    "alt": "dsh-hs-candidate quickstart terminal output",
+    "caption": "Real command: node samples/quickstart/run.mjs --check — 20 synthetic descriptions to Top-3 HS candidates, 12-element check, tariff 2026.1, 5 code checks and 3 RVC formulas. Rendered from the captured terminal output.",
+    "command": "node samples/quickstart/run.mjs --check",
+    "run_at": "2026-11-02T12:35:05Z",
+    "output_sha256": "24b04a82121ded267e3a92648bd909d990b6299e34beb10954982cd43b5f1d74",
+    "output_path": "samples/quickstart/expected/result.json",
+    "log": "docs/assets/quickstart.log",
+    "log_sha256": "33782d7b2c8a758ab2ff0ae898300a116b708a3d3790703de03d141abaa3e884",
+    "image_sha256": "df446945e7719704af271224a5873765ba55e36c4b7b30ca77eb61c6d3d311f7"
+  },
+  {
     "path": "docs/assets/dsh-hs-candidate-capability.png",
     "kind": "capability",
     "alt": "dsh-hs-candidate real test run",

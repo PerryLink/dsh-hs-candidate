@@ -1,0 +1,215 @@
+{
+  "sample": "samples/quickstart/input/descriptions.csv",
+  "descriptions": 20,
+  "classifications": [
+    {
+      "description": "plastic housing for electric motor",
+      "top3": [
+        "3926.90",
+        "8501.10",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "steel bracket for laptop computer",
+      "top3": [
+        "7326.90",
+        "8471.30",
+        "3926.90"
+      ]
+    },
+    {
+      "description": "cotton garment trousers",
+      "top3": [
+        "6204.62",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "portable computer docking station",
+      "top3": [
+        "8471.30",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "industrial generator assembly",
+      "top3": [
+        "8501.10",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "plastic housing for electric motor",
+      "top3": [
+        "3926.90",
+        "8501.10",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "steel bracket for laptop computer",
+      "top3": [
+        "7326.90",
+        "8471.30",
+        "3926.90"
+      ]
+    },
+    {
+      "description": "cotton garment trousers",
+      "top3": [
+        "6204.62",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "portable computer docking station",
+      "top3": [
+        "8471.30",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "industrial generator assembly",
+      "top3": [
+        "8501.10",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "plastic housing for electric motor",
+      "top3": [
+        "3926.90",
+        "8501.10",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "steel bracket for laptop computer",
+      "top3": [
+        "7326.90",
+        "8471.30",
+        "3926.90"
+      ]
+    },
+    {
+      "description": "cotton garment trousers",
+      "top3": [
+        "6204.62",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "portable computer docking station",
+      "top3": [
+        "8471.30",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "industrial generator assembly",
+      "top3": [
+        "8501.10",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "plastic housing for electric motor",
+      "top3": [
+        "3926.90",
+        "8501.10",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "steel bracket for laptop computer",
+      "top3": [
+        "7326.90",
+        "8471.30",
+        "3926.90"
+      ]
+    },
+    {
+      "description": "cotton garment trousers",
+      "top3": [
+        "6204.62",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "portable computer docking station",
+      "top3": [
+        "8471.30",
+        "3926.90",
+        "7326.90"
+      ]
+    },
+    {
+      "description": "industrial generator assembly",
+      "top3": [
+        "8501.10",
+        "3926.90",
+        "7326.90"
+      ]
+    }
+  ],
+  "elements": {
+    "complete": true,
+    "missing_when_complete": 0,
+    "missing_when_omitted": 12
+  },
+  "tariff_version": "2026.1",
+  "code_checks": [
+    {
+      "code": "8471.30",
+      "valid": true
+    },
+    {
+      "code": "84713000",
+      "valid": true
+    },
+    {
+      "code": "84713",
+      "valid": false,
+      "reason": "E_HS_CODE_LENGTH"
+    },
+    {
+      "code": "ABCDEF",
+      "valid": false,
+      "reason": "E_HS_CODE_FORMAT"
+    },
+    {
+      "code": "9999.00",
+      "valid": false,
+      "reason": "E_HS_CODE_CHAPTER_RESERVED"
+    }
+  ],
+  "rvc": {
+    "threshold_pct": 50,
+    "meets_threshold": true,
+    "methods": [
+      {
+        "method": "simple_ratio",
+        "rvc_pct": 30
+      },
+      {
+        "method": "build_down",
+        "rvc_pct": 60
+      },
+      {
+        "method": "build_up",
+        "rvc_pct": 60
+      }
+    ]
+  }
+}

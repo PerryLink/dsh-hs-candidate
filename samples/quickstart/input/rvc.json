@@ -1,0 +1,7 @@
+{
+  "fob_cents": 10000,
+  "non_originating_cents": 4000,
+  "domestic_value_cents": 3000,
+  "labour_overhead_cents": 3000,
+  "threshold_pct": 50
+}

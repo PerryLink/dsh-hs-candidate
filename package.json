@@ -1,6 +1,6 @@
 {
   "name": "dsh-hs-candidate",
-  "version": "0.1.0-alpha.12",
+  "version": "0.1.0-alpha.13",
   "description": "HS Top-3 candidates, 12-element completeness, RVC check and tariff version gate.",
   "type": "module",
   "main": "./lib/plugin/index.js",
@@ -28,11 +28,28 @@
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
     "CHANGELOG.md",
-    "icon.svg"
+    "icon.svg",
+    "samples",
+    "TROUBLESHOOTING.md",
+    "screenshots.json"
   ],
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "demo": {
+      "sample": "samples/quickstart/input/descriptions.csv",
+      "prompt": "我有 20 条产品描述，帮我给出每条的前 3 个 HS 候选编码，再检查 12 项归类要素齐不齐。",
+      "expect": "samples/quickstart/expected/result.json",
+      "screenshot": "docs/assets/quickstart.png",
+      "reads": [
+        "用户提供的产品描述表（样例：samples/quickstart/input/descriptions.csv）"
+      ],
+      "writes": [
+        "$DSH_HOME/storages/hs/"
+      ],
+      "network": false,
+      "external": []
     }
   },
   "engines": {

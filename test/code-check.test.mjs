@@ -23,7 +23,9 @@ test('bad length, letters and reserved chapters get distinct reasons', async () 
   assert.equal((await tools['hs.code_check'].execute({ code: '84713' }, exec)).reason, 'E_HS_CODE_LENGTH')
   assert.equal((await tools['hs.code_check'].execute({ code: 'ABCDEF' }, exec)).reason, 'E_HS_CODE_FORMAT')
   assert.equal((await tools['hs.code_check'].execute({ code: '0000' }, exec)).reason, 'E_HS_CODE_CHAPTER_RESERVED')
-  assert.equal((await tools['hs.code_check'].execute({ code: '9999.00' }, exec)).reason, 'E_HS_CODE_CHAPTER_RESERVED')
+  const reserved = await tools['hs.code_check'].execute({ code: '9999.00' }, exec)
+  assert.equal(reserved.reason, 'E_HS_CODE_CHAPTER_RESERVED')
+  assert.match(reserved.message, /（E_HS_CODE_CHAPTER_RESERVED）｜下一步：/)
 })
 
 test('chapter 97 is the last valid chapter', async () => {
