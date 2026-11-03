@@ -1,9 +1,9 @@
 req_id,metric,threshold,actual,script,evidence_sha256,pass,source,counted
-SKU-13-A01,Top3 候选（20）,20/20,20,scripts/acceptance.mjs,04fcbd7c81feaf0778d836e3b85193570c4610b227dd9850ab3cb8ace265628a,true,public/synthetic,false
-SKU-13-A02,缺失要素提示,>=1,12,scripts/acceptance.mjs,04fcbd7c81feaf0778d836e3b85193570c4610b227dd9850ab3cb8ace265628a,true,public/synthetic,false
-SKU-13-A03,必填要素,12,12,scripts/acceptance.mjs,04fcbd7c81feaf0778d836e3b85193570c4610b227dd9850ab3cb8ace265628a,true,public/synthetic,false
-SKU-13-A04,税则版本,set,1,scripts/acceptance.mjs,04fcbd7c81feaf0778d836e3b85193570c4610b227dd9850ab3cb8ace265628a,true,public/synthetic,false
-SKU-13-A05,RVC 简单比值,50,50,scripts/acceptance.mjs,04fcbd7c81feaf0778d836e3b85193570c4610b227dd9850ab3cb8ace265628a,true,public/synthetic,false
-SKU-13-A06,HS 编码结构,1/1,1,scripts/acceptance.mjs,04fcbd7c81feaf0778d836e3b85193570c4610b227dd9850ab3cb8ace265628a,true,public/synthetic,false
-SKU-13-A07,RVC 三口径,3,3,scripts/acceptance.mjs,04fcbd7c81feaf0778d836e3b85193570c4610b227dd9850ab3cb8ace265628a,true,public/synthetic,false
+SKU-13-A01,Top3 候选（20）,20/20,20,scripts/acceptance.mjs,4590593683b0decc41f464630335c07edc7edff3c45a495b1e0003b82a618620,true,public/synthetic,false
+SKU-13-A02,缺失要素提示,>=1,12,scripts/acceptance.mjs,4590593683b0decc41f464630335c07edc7edff3c45a495b1e0003b82a618620,true,public/synthetic,false
+SKU-13-A03,必填要素,12,12,scripts/acceptance.mjs,4590593683b0decc41f464630335c07edc7edff3c45a495b1e0003b82a618620,true,public/synthetic,false
+SKU-13-A04,税则版本,set,1,scripts/acceptance.mjs,4590593683b0decc41f464630335c07edc7edff3c45a495b1e0003b82a618620,true,public/synthetic,false
+SKU-13-A05,RVC 简单比值,50,50,scripts/acceptance.mjs,4590593683b0decc41f464630335c07edc7edff3c45a495b1e0003b82a618620,true,public/synthetic,false
+SKU-13-A06,HS 编码结构,1/1,1,scripts/acceptance.mjs,4590593683b0decc41f464630335c07edc7edff3c45a495b1e0003b82a618620,true,public/synthetic,false
+SKU-13-A07,RVC 三口径,3,3,scripts/acceptance.mjs,4590593683b0decc41f464630335c07edc7edff3c45a495b1e0003b82a618620,true,public/synthetic,false
 PS1-QS01,quickstart 样例与金标一致,1/1,1,scripts/acceptance.mjs,24b04a82121ded267e3a92648bd909d990b6299e34beb10954982cd43b5f1d74,true,synthetic/quickstart,true
