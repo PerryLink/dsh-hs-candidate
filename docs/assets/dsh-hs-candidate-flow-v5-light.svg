@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-label="dsh-hs-candidate 结构图：描述与要素值进入五条公开关键词分支，塑料与电机两条命中，第三位按表序补齐；Top-3 短名单带 GIR 依据，记录含 12 项缺失与税则 2026.1，写入本地存储域；R0 校验台为只读旁路">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#16122c" flood-opacity="0.10"/></filter>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.6" markerHeight="5.6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4B67B4"/></marker>
+</defs>
+<rect width="1100" height="660" fill="url(#bg)"/>
+<text x="44" y="52" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="24" font-weight="700">dsh-hs-candidate</text>
+<text x="274" y="52" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="23" font-weight="700">关键词分支 → Top-3 短名单</text>
+<rect x="820.0" y="34" width="236.0" height="24" rx="12.0" fill="#f5f2fb"/>
+<text x="831.0" y="49.91" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">TARIFF_VERSION 2026.1 · 公开表 5 条</text>
+<text x="44" y="84" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14">一条描述进入关键词表：命中项按表序在前，不足 3 条再从表序补位；候选、缺项与税则版本一起写成一条本地记录。</text>
+<line x1="44" y1="100" x2="1056" y2="100" stroke="#dcd8ea" stroke-width="1"/>
+<text x="280" y="116" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">公开关键词表 · 5 条真实条目（另有 1 条兜底不入候选）</text>
+<line x1="246" y1="154" x2="246" y2="402" stroke="#dcd8ea" stroke-width="1.4"/>
+<line x1="228" y1="282" x2="246" y2="282" stroke="#4B67B4" stroke-width="1.8"/>
+<line x1="246" y1="154" x2="277" y2="154" stroke="#4B67B4" stroke-width="1.9" marker-end="url(#arr)"/>
+<circle cx="246" cy="154" r="3.2" fill="#4B67B4"/>
+<rect x="280" y="128" width="290" height="52" rx="16" fill="#ffffff" stroke="#4B67B4" stroke-width="2"/>
+<text x="294" y="151" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16" font-weight="700">3926.90</text>
+<text x="365.0" y="151" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">塑料</text>
+<text x="294" y="170" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">plastic · polymer · resin</text>
+<rect x="520.0" y="136" width="38.0" height="19" rx="9.5" fill="#ece7f9"/>
+<text x="528.0" y="149.24" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">命中</text>
+<line x1="246" y1="216" x2="280" y2="216" stroke="#dcd8ea" stroke-width="1.3"/>
+<circle cx="246" cy="216" r="3.2" fill="#8f94a4"/>
+<rect x="280" y="190" width="290" height="52" rx="16" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4"/>
+<text x="294" y="213" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16" font-weight="700">7326.90</text>
+<text x="365.0" y="213" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">钢铁</text>
+<text x="294" y="232" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">steel · iron · metal</text>
+<rect x="509.0" y="198" width="49.0" height="19" rx="9.5" fill="#f5f2fb"/>
+<text x="517.0" y="211.24" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">未命中</text>
+<line x1="246" y1="278" x2="277" y2="278" stroke="#4B67B4" stroke-width="1.9" marker-end="url(#arr)"/>
+<circle cx="246" cy="278" r="3.2" fill="#4B67B4"/>
+<rect x="280" y="252" width="290" height="52" rx="16" fill="#ffffff" stroke="#4B67B4" stroke-width="2"/>
+<text x="294" y="275" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16" font-weight="700">8501.10</text>
+<text x="365.0" y="275" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">电机</text>
+<text x="294" y="294" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">motor · generator</text>
+<rect x="520.0" y="260" width="38.0" height="19" rx="9.5" fill="#ece7f9"/>
+<text x="528.0" y="273.24" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">命中</text>
+<line x1="246" y1="340" x2="280" y2="340" stroke="#dcd8ea" stroke-width="1.3"/>
+<circle cx="246" cy="340" r="3.2" fill="#8f94a4"/>
+<rect x="280" y="314" width="290" height="52" rx="16" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4"/>
+<text x="294" y="337" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16" font-weight="700">6204.62</text>
+<text x="365.0" y="337" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">棉裤</text>
+<text x="294" y="356" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">garment · trousers · cotton</text>
+<rect x="509.0" y="322" width="49.0" height="19" rx="9.5" fill="#f5f2fb"/>
+<text x="517.0" y="335.24" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">未命中</text>
+<line x1="246" y1="402" x2="280" y2="402" stroke="#dcd8ea" stroke-width="1.3"/>
+<circle cx="246" cy="402" r="3.2" fill="#8f94a4"/>
+<rect x="280" y="376" width="290" height="52" rx="16" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.4"/>
+<text x="294" y="399" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16" font-weight="700">8471.30</text>
+<text x="365.0" y="399" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">便携电脑</text>
+<text x="294" y="418" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">laptop · computer · portable</text>
+<rect x="509.0" y="384" width="49.0" height="19" rx="9.5" fill="#f5f2fb"/>
+<text x="517.0" y="397.24" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">未命中</text>
+<rect x="44" y="218" width="184" height="130" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="60" y="242" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">输入 · 检索文本</text>
+<text x="60" y="266" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">descriptions.csv</text>
+<text x="208" y="266" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">20 行</text>
+<text x="60" y="286" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">elements.json</text>
+<text x="208" y="286" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">可选</text>
+<line x1="60" y1="298" x2="212" y2="298" stroke="#dcd8ea" stroke-width="1"/>
+<text x="60" y="310" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">描述 + 要素值拼接</text>
+<text x="60" y="328" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">12 键可并入 → 关键词表</text>
+<rect x="596" y="112" width="460" height="322" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="612" y="136" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">Top-3 短名单</text>
+<rect x="958.0" y="130" width="82.0" height="19" rx="9.5" fill="#f5f2fb"/>
+<text x="966.0" y="143.24" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">置信度仅排序</text>
+<text x="612" y="160" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">示例</text>
+<text x="642" y="160" fill="#4d5261" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">plastic housing for electric motor</text>
+<text x="858" y="160" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">· 20 条各一份</text>
+<rect x="612" y="188" width="26" height="26" rx="8" fill="#f5f2fb"/>
+<text x="625" y="206" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle" font-weight="700">1</text>
+<text x="646" y="204" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17.5" font-weight="700">3926.90</text>
+<text x="736" y="198" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">Other articles of plastics</text>
+<text x="736" y="218" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">GIR 1 + heading text</text>
+<rect x="928" y="198" width="80" height="6" rx="3" fill="#f5f2fb"/>
+<rect x="928" y="198" width="72.0" height="6" rx="3" fill="#4B67B4"/>
+<text x="1044" y="205" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" text-anchor="end" font-weight="700">0.90</text>
+<rect x="612" y="248" width="26" height="26" rx="8" fill="#f5f2fb"/>
+<text x="625" y="266" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle" font-weight="700">2</text>
+<text x="646" y="264" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17.5" font-weight="700">8501.10</text>
+<text x="736" y="258" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">Motors of output &lt;= 37.5 W</text>
+<text x="736" y="278" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">GIR 1 fallback; verify with GIR 3/6</text>
+<rect x="928" y="258" width="80" height="6" rx="3" fill="#f5f2fb"/>
+<rect x="928" y="258" width="60.0" height="6" rx="3" fill="#4B67B4"/>
+<text x="1044" y="265" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" text-anchor="end" font-weight="700">0.75</text>
+<rect x="612" y="308" width="26" height="26" rx="8" fill="#f5f2fb"/>
+<text x="625" y="326" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" text-anchor="middle" font-weight="700">3</text>
+<text x="646" y="324" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17.5" font-weight="700">7326.90</text>
+<text x="736" y="318" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">Other articles of iron or steel</text>
+<text x="736" y="338" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">GIR 1 fallback; verify with GIR 3/6</text>
+<rect x="928" y="318" width="80" height="6" rx="3" fill="#f5f2fb"/>
+<rect x="928" y="318" width="48.0" height="6" rx="3" fill="#4B67B4"/>
+<text x="1044" y="325" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" text-anchor="end" font-weight="700">0.60</text>
+<text x="612" y="376" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">命中 2 条 → 第 3 位按表序补齐 7326.90</text>
+<text x="612" y="394" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">首位 GIR 1 + 品目条文；其余 GIR 1 兜底，按 GIR 3/6 复核</text>
+<text x="612" y="412" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">置信度 0.9 / 0.75 / 0.6 是排序提示，不是概率</text>
+<rect x="44" y="448" width="652" height="144" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="62" y="470" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">归类记录 · classifications</text>
+<rect x="613.0" y="464" width="67.0" height="20" rx="10.0" fill="#ece7f9"/>
+<text x="622.0" y="477.74" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">R1 本地写</text>
+<line x1="370" y1="486" x2="370" y2="560" stroke="#dcd8ea" stroke-width="1"/>
+<text x="62" y="490" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">classification_id</text>
+<text x="386" y="490" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">top3[3]</text>
+<text x="62" y="510" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">hs_f926f0d8616f</text>
+<text x="386" y="510" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13">3926.90 · 8501.10 · 7326.90</text>
+<text x="62" y="534" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">missing_elements</text>
+<text x="386" y="534" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">tariff_version</text>
+<text x="62" y="554" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">12</text>
+<text x="86" y="554" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">· complete=false</text>
+<text x="184" y="554" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">仅传描述</text>
+<text x="386" y="554" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">2026.1</text>
+<text x="62" y="578" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">写入 $DSH_HOME/storages/hs/ · 原 CSV / JSON 不改</text>
+<rect x="712" y="448" width="344" height="144" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="730" y="470" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">R0 校验台 · 只读旁路</text>
+<rect x="980.0" y="464" width="60.0" height="19" rx="9.5" fill="#f5f2fb"/>
+<text x="988.0" y="477.24" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">不写记录</text>
+<text x="730" y="496" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs.code_check</text>
+<text x="840" y="496" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">84713000 ✓ · 9999.00 保留章</text>
+<text x="730" y="520" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs.rvc_check</text>
+<text x="840" y="520" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">50% ≥ 40 · qualifies</text>
+<text x="730" y="544" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs.rvc_report</text>
+<text x="840" y="544" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">30 · 60 · 60 三口径</text>
+<text x="730" y="568" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs.lookup</text>
+<text x="840" y="568" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">公开表内 ≤ 5 行</text>
+<line x1="44" y1="608" x2="1056" y2="608" stroke="#dcd8ea" stroke-width="1"/>
+<text x="44" y="626" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">PerryLink DSH plugin family · Apache-2.0 · 配图由 scripts/gen-readme-assets.py 生成</text>
+<text x="1056" y="626" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">公开表 5 条 + 兜底 1 条 · 本地，不联网</text>
+</svg>

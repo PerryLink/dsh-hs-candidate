@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-flow-dark.svg">
-  <img src="docs/assets/dsh-hs-candidate-flow-light.svg" width="100%" alt="Flujo de datos de dsh-hs-candidate: CSV de descripciones / JSON de 12 elementos / lista de códigos → comprobación con hs.elements → candidatos Top-3 con hs.classify (arancel 2026.1) → validación con hs.code_check / hs.rvc_report → registro de clasificación en $DSH_HOME/storages/hs/; todo local">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-hero-en-dark.webp">
+  <img src="docs/assets/dsh-hs-candidate-hero-en-light.webp" width="100%" alt="Imagen de dsh-hs-candidate: a la izquierda, el nombre del plugin y dos frases de valor; a la derecha, un registro de clasificación — la descripción de ejemplo 'plastic housing for electric motor' con sus candidatos Top-3 3926.90 / 8501.10 / 7326.90, confianza 0.9 / 0.75 / 0.6 y su base GIR; faltan los 12 elementos de clasificación (missing 12); classification_id hs_f926f0d8616f se escribe en $DSH_HOME/storages/hs/, todo local">
 </picture>
 
 # dsh-hs-candidate
@@ -39,6 +39,11 @@ El primer tramo de la clasificación HS: convierte una descripción de producto 
 
 - **Encaja**: listas de 20–500 productos con material, uso y función descritos; obtener códigos candidatos y un chequeo de elementos antes de la clasificación formal.
 - **No encaja**: filas con solo el nombre y sin material ni uso; sustituir una resolución aduanera; generar una declaración de aduanas (este paquete solo da candidatos y comprobaciones estructurales).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hs-candidate-flow-v5-light.svg" width="100%" alt="Estructura de dsh-hs-candidate: la descripción y los valores de los elementos entran en cinco ramas de palabras clave públicas; las ramas de plástico y motor coinciden, y el tercer puesto se completa por orden de tabla como 7326.90; la lista Top-3 lleva la base GIR; el registro de clasificación guarda 12 elementos faltantes y el arancel 2026.1 y se escribe en el almacén local; el banco R0 es una vía lateral de solo lectura">
+</picture>
 
 ## Instalación en tres pasos
 
@@ -272,7 +277,7 @@ node samples/quickstart/run.mjs --check                     # muestra contra el 
 pnpm run pack:check                                         # dry-run del contenido publicado (escribe pack.json)
 ```
 
-Versión actual `0.1.1` (coincide con `package.json`). Pruebas: `node --test test/*.test.mjs` en verde (7 archivos de test, 13 casos; `pnpm test` ya incluye el build). El código TypeScript está en `src/` (`src/core/` contiene la lógica de clasificación, códigos y RVC; `src/plugin/` la cara host y el dominio de almacenamiento), la salida de compilación en `lib/`; los fixtures en `fixtures/public/mit/`, la muestra incluida en `samples/quickstart/` y los registros de aceptación en `evidence/`. El diagrama de apertura lo genera [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python; par SVG claro/oscuro compartido por los cinco idiomas) y se puede repetir con `python scripts/gen-readme-assets.py`.
+Versión actual `0.1.1` (coincide con `package.json`). Pruebas: `node --test test/*.test.mjs` en verde (7 archivos de test, 13 casos; `pnpm test` ya incluye el build). El código TypeScript está en `src/` (`src/core/` contiene la lógica de clasificación, códigos y RVC; `src/plugin/` la cara host y el dominio de almacenamiento), la salida de compilación en `lib/`; los fixtures en `fixtures/public/mit/`, la muestra incluida en `samples/quickstart/` y los registros de aceptación en `evidence/`. El hero de apertura y el diagrama de estructura los genera [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para los cuatro heroes zh/en × claro/oscuro; SVG escrito a mano para el par de estructura claro/oscuro) y se pueden repetir con `python scripts/gen-readme-assets.py`.
 
 Temas: `deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 

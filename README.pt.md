@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-flow-dark.svg">
-  <img src="docs/assets/dsh-hs-candidate-flow-light.svg" width="100%" alt="Fluxo de dados do dsh-hs-candidate: CSV de descrições / JSON de 12 elementos / lista de códigos → verificação com hs.elements → candidatos Top-3 com hs.classify (tarifa 2026.1) → validação com hs.code_check / hs.rvc_report → registro de classificação em $DSH_HOME/storages/hs/; tudo local">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-hero-en-dark.webp">
+  <img src="docs/assets/dsh-hs-candidate-hero-en-light.webp" width="100%" alt="Imagem do dsh-hs-candidate: à esquerda, o nome do plugin e duas frases de valor; à direita, um registro de classificação — a descrição de exemplo 'plastic housing for electric motor' com seus candidatos Top-3 3926.90 / 8501.10 / 7326.90, confiança 0.9 / 0.75 / 0.6 e sua base GIR; faltam os 12 elementos de classificação (missing 12); classification_id hs_f926f0d8616f é gravado em $DSH_HOME/storages/hs/, tudo local">
 </picture>
 
 # dsh-hs-candidate
@@ -39,6 +39,11 @@ O primeiro trecho da classificação HS: transforma uma descrição de produto (
 
 - **Serve para**: listas de 20–500 produtos com material, uso e função descritos; obter códigos candidatos e uma checagem de elementos antes da classificação formal.
 - **Não serve para**: linhas só com o nome, sem material nem uso; substituir uma decisão aduaneira; gerar uma declaração de importação (este pacote só dá candidatos e checagens estruturais).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hs-candidate-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-hs-candidate: a descrição e os valores dos elementos entram em cinco ramos de palavras-chave públicas; os ramos de plástico e motor acertam, e a terceira posição é completada por ordem de tabela como 7326.90; a lista Top-3 leva a base GIR; o registro de classificação guarda 12 elementos faltantes e a tarifa 2026.1 e é gravado no armazenamento local; o banco R0 é uma via lateral somente leitura">
+</picture>
 
 ## Instalação em três passos
 
@@ -272,7 +277,7 @@ node samples/quickstart/run.mjs --check                     # amostra contra o a
 pnpm run pack:check                                         # dry-run do conteúdo publicado (grava pack.json)
 ```
 
-Versão atual `0.1.1` (igual ao `package.json`). Testes: `node --test test/*.test.mjs` verde (7 arquivos de teste, 13 casos; `pnpm test` já inclui o build). O código TypeScript está em `src/` (`src/core/` tem a lógica de classificação, códigos e RVC; `src/plugin/` a face host e o domínio de armazenamento), a saída de build em `lib/`; os fixtures em `fixtures/public/mit/`, a amostra incluída em `samples/quickstart/` e os registros de aceitação em `evidence/`. O diagrama de abertura é gerado por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python; par SVG claro/escuro compartilhado pelos cinco idiomas) e pode ser repetido com `python scripts/gen-readme-assets.py`.
+Versão atual `0.1.1` (igual ao `package.json`). Testes: `node --test test/*.test.mjs` verde (7 arquivos de teste, 13 casos; `pnpm test` já inclui o build). O código TypeScript está em `src/` (`src/core/` tem a lógica de classificação, códigos e RVC; `src/plugin/` a face host e o domínio de armazenamento), a saída de build em `lib/`; os fixtures em `fixtures/public/mit/`, a amostra incluída em `samples/quickstart/` e os registros de aceitação em `evidence/`. O hero de abertura e o diagrama de estrutura são gerados por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para os quatro heroes zh/en × claro/escuro; SVG escrito à mão para o par de estrutura claro/escuro) e podem ser repetidos com `python scripts/gen-readme-assets.py`.
 
 Tópicos: `deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-flow-dark.svg">
-  <img src="docs/assets/dsh-hs-candidate-flow-light.svg" width="100%" alt="dsh-hs-candidate 数据流：产品描述 CSV / 12 要素 JSON / 编码清单 → hs.elements 查缺 → hs.classify 出 Top-3 候选（税则 2026.1）→ hs.code_check / hs.rvc_report 校验 → 归类记录写入 $DSH_HOME/storages/hs/；全程本地">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-hs-candidate-hero-zh-light.webp" width="100%" alt="dsh-hs-candidate 配图：左列是插件名与两行价值句；右侧是一条归类记录——示例描述 plastic housing for electric motor 的 Top-3 候选 3926.90 / 8501.10 / 7326.90，置信度 0.9 / 0.75 / 0.6 与 GIR 依据；12 项归类要素全缺（missing 12）；classification_id hs_f926f0d8616f 写入 $DSH_HOME/storages/hs/，全程本地">
 </picture>
 
 # dsh-hs-candidate
@@ -39,6 +39,11 @@ HS 归类的第一公里：把一句产品描述（材质、用途、功能）�
 
 - **适合**：20–500 条、有材质/用途/功能描述的产品清单；在正式归类前先拿候选编码，并检查要素是否缺项。
 - **不适合**：只有品名、没有材质和用途的记录；替代海关做归类裁定；直接生成报关单（本包只给候选和结构检查）。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hs-candidate-flow-v5-light.svg" width="100%" alt="dsh-hs-candidate 结构图：描述与要素值进入公开关键词表的五条分支，塑料与电机两条命中，第三位按表序补齐为 7326.90；Top-3 短名单带 GIR 依据；归类记录含 12 项缺失与税则 2026.1，写入本地存储域；R0 校验台为只读旁路">
+</picture>
 
 ## 三步上手
 
@@ -272,7 +277,7 @@ node samples/quickstart/run.mjs --check                     # 合成样例对照
 pnpm run pack:check                                         # 发布内容 dry-run 校验（生成 pack.json）
 ```
 
-当前版本 `0.1.1`（与 `package.json` 一致）。测试：`node --test test/*.test.mjs` 全绿（7 个测试文件、13 个用例；`pnpm test` 已内置构建步骤）。TypeScript 源码在 `src/`（`src/core/` 归类、编码与 RVC 逻辑，`src/plugin/` 宿主面与存储域），构建产物在 `lib/`；fixture 在 `fixtures/public/mit/`，随包样例在 `samples/quickstart/`，验收记录在 `evidence/`。开头流程图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python；SVG 深浅双版、五语共用），可重复执行：`python scripts/gen-readme-assets.py`。
+当前版本 `0.1.1`（与 `package.json` 一致）。测试：`node --test test/*.test.mjs` 全绿（7 个测试文件、13 个用例；`pnpm test` 已内置构建步骤）。TypeScript 源码在 `src/`（`src/core/` 归类、编码与 RVC 逻辑，`src/plugin/` 宿主面与存储域），构建产物在 `lib/`；fixture 在 `fixtures/public/mit/`，随包样例在 `samples/quickstart/`，验收记录在 `evidence/`。开头 hero 与结构图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow 出 zh/en × 深浅四版 hero，手写 SVG 出深浅双版结构图），可重复执行：`python scripts/gen-readme-assets.py`。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 

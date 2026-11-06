@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-flow-dark.svg">
-  <img src="docs/assets/dsh-hs-candidate-flow-light.svg" width="100%" alt="dsh-hs-candidate डेटा प्रवाह: विवरण CSV / 12-तत्व JSON / कोड सूची → hs.elements से पूर्णता जाँच → hs.classify से टॉप-3 उम्मीदवार (टैरिफ़ 2026.1) → hs.code_check / hs.rvc_report से सत्यापन → वर्गीकरण रिकॉर्ड $DSH_HOME/storages/hs/ में; सब कुछ स्थानीय">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-hero-en-dark.webp">
+  <img src="docs/assets/dsh-hs-candidate-hero-en-light.webp" width="100%" alt="dsh-hs-candidate हीरो: बाएँ, प्लगइन का नाम और मूल्य की दो पंक्तियाँ; दाएँ, एक वर्गीकरण रिकॉर्ड — नमूना विवरण 'plastic housing for electric motor' के साथ Top-3 उम्मीदवार 3926.90 / 8501.10 / 7326.90, विश्वास 0.9 / 0.75 / 0.6 और उनका GIR आधार; 12 वर्गीकरण तत्व सभी अनुपस्थित (missing 12); classification_id hs_f926f0d8616f $DSH_HOME/storages/hs/ में लिखा जाता है, सब कुछ स्थानीय">
 </picture>
 
 # dsh-hs-candidate
@@ -39,6 +39,11 @@ HS वर्गीकरण की पहली कड़ी: एक पंक�
 
 - **किसके लिए ठीक है**: 20–500 उत्पाद पंक्तियाँ जिनमें सामग्री, उपयोग और कार्य लिखे हों; औपचारिक वर्गीकरण से पहले उम्मीदवार कोड और तत्वों की कमी की जाँच।
 - **किसके लिए नहीं**: सिर्फ़ नाम वाली पंक्तियाँ जिनमें सामग्री और उपयोग न हो; सीमा शुल्क निर्णय की जगह लेना; सीमा शुल्क घोषणा बनाना (यह पैकेज केवल उम्मीदवार और संरचना जाँच देता है)।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-hs-candidate-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-hs-candidate-flow-v5-light.svg" width="100%" alt="dsh-hs-candidate संरचना: विवरण और तत्व मान सार्वजनिक कीवर्ड तालिका की पाँच शाखाओं में जाते हैं; प्लास्टिक और मोटर शाखाएँ मेल खाती हैं, और तीसरा स्थान तालिका क्रम से 7326.90 भरता है; Top-3 सूची GIR आधार ले जाती है; वर्गीकरण रिकॉर्ड में 12 अनुपस्थित तत्व और टैरिफ़ 2026.1 हैं और वह स्थानीय स्टोर में लिखा जाता है; R0 बेंच केवल-पढ़ने वाला पार्श्व मार्ग है">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -272,7 +277,7 @@ node samples/quickstart/run.mjs --check                     # नमूना �
 pnpm run pack:check                                         # प्रकाशित सामग्री का dry-run (pack.json लिखता है)
 ```
 
-वर्तमान संस्करण `0.1.1` (`package.json` से मेल)। परीक्षण: `node --test test/*.test.mjs` हरा है (7 टेस्ट फ़ाइलें, 13 केस; `pnpm test` में बिल्ड पहले से शामिल है)। TypeScript स्रोत `src/` में (`src/core/` में वर्गीकरण, कोड और RVC तर्क; `src/plugin/` में होस्ट फ़ेस और स्टोरेज डोमेन), बिल्ड आउटपुट `lib/` में; fixture `fixtures/public/mit/` में, साथ दिया नमूना `samples/quickstart/` में और स्वीकृति रिकॉर्ड `evidence/` में। शुरुआती आरेख [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से बनता है (Python; पाँच भाषाओं के लिए साझा हल्का/गहरा SVG जोड़ा) और `python scripts/gen-readme-assets.py` से दोबारा बनाया जा सकता है।
+वर्तमान संस्करण `0.1.1` (`package.json` से मेल)। परीक्षण: `node --test test/*.test.mjs` हरा है (7 टेस्ट फ़ाइलें, 13 केस; `pnpm test` में बिल्ड पहले से शामिल है)। TypeScript स्रोत `src/` में (`src/core/` में वर्गीकरण, कोड और RVC तर्क; `src/plugin/` में होस्ट फ़ेस और स्टोरेज डोमेन), बिल्ड आउटपुट `lib/` में; fixture `fixtures/public/mit/` में, साथ दिया नमूना `samples/quickstart/` में और स्वीकृति रिकॉर्ड `evidence/` में। शुरुआती हीरो और संरचना आरेख [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से बनते हैं (Pillow से zh/en × हल्का/गहरा चार हीरो; हाथ से लिखा SVG हल्का/गहरा संरचना जोड़ा) और `python scripts/gen-readme-assets.py` से दोबारा बनाए जा सकते हैं।
 
 विषय: `deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 
