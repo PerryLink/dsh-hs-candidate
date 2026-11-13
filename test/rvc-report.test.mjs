@@ -8,14 +8,14 @@ const tools = Object.fromEntries(createTools({ recs: new T(), baseDir: '/tmp/hs-
 const exec = { callId: 'rvc' }
 
 test('the three formulas agree on a fully domestic good', async () => {
-  const r = await tools['hs.rvc_report'].execute({ fob_cents: 10000, non_originating_cents: 0, domestic_value_cents: 10000 }, exec)
+  const r = await tools['hs_rvc_report'].execute({ fob_cents: 10000, non_originating_cents: 0, domestic_value_cents: 10000 }, exec)
   assert.equal(r.methods.length, 3)
   for (const m of r.methods) assert.equal(m.rvc_pct, 100)
   assert.equal(r.meets_threshold, true)
 })
 
 test('build-down and build-up diverge when labour and overhead are declared', async () => {
-  const r = await tools['hs.rvc_report'].execute({ fob_cents: 10000, non_originating_cents: 4000, domestic_value_cents: 3000, labour_overhead_cents: 3000 }, exec)
+  const r = await tools['hs_rvc_report'].execute({ fob_cents: 10000, non_originating_cents: 4000, domestic_value_cents: 3000, labour_overhead_cents: 3000 }, exec)
   const by = Object.fromEntries(r.methods.map((m) => [m.method, m.rvc_pct]))
   assert.equal(by.simple_ratio, 30)
   assert.equal(by.build_down, 60)
@@ -23,9 +23,9 @@ test('build-down and build-up diverge when labour and overhead are declared', as
 })
 
 test('the threshold check passes when any method clears it', async () => {
-  const below = await tools['hs.rvc_report'].execute({ fob_cents: 10000, non_originating_cents: 9000, domestic_value_cents: 1000, threshold_pct: 50 }, exec)
+  const below = await tools['hs_rvc_report'].execute({ fob_cents: 10000, non_originating_cents: 9000, domestic_value_cents: 1000, threshold_pct: 50 }, exec)
   assert.equal(below.meets_threshold, false)
-  const above = await tools['hs.rvc_report'].execute({ fob_cents: 10000, non_originating_cents: 2000, domestic_value_cents: 8000, threshold_pct: 50 }, exec)
+  const above = await tools['hs_rvc_report'].execute({ fob_cents: 10000, non_originating_cents: 2000, domestic_value_cents: 8000, threshold_pct: 50 }, exec)
   assert.equal(above.meets_threshold, true)
 })
 

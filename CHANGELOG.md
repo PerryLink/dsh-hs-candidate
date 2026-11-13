@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.2.0] — 2026-11-13
+
+### Breaking
+
+- **Tool names no longer contain a dot.** The seven tools are now `hs_elements`,
+  `hs_classify`, `hs_tariff_version`, `hs_lookup`, `hs_rvc_check`,
+  `hs_code_check` and `hs_rvc_report`. Providers validate `tools[].name`
+  against `^[a-zA-Z0-9_-]+$`; the old dotted spelling invalidated the whole
+  `tools` array, so the plugin registered but every request carrying its tools
+  was rejected with `Invalid 'tools[N].name'`. Minor bump because tool names
+  are part of the 0.1.0 compatibility promise — update prompts, saved calls and
+  permission rules that still use the old dotted spelling.
+- `test/tool-name-wire.test.mjs` pins the wire pattern, so a new tool cannot
+  reintroduce a dot, drop the `hs_` namespace or duplicate an existing name.
+- Earlier changelog entries use the underscore spelling, so a repository-wide
+  search no longer finds dotted tool names.
+
 ## [0.1.0] — 2026-11-03
 
 ### Stable
@@ -17,13 +34,13 @@
 
 ### Added
 
-- `hs.rvc_report`: regional value content under the three rules-of-origin formulas (simple ratio, build-down, build-up) with a threshold verdict. Verified by `node --test test/*.test.mjs` (11/11).
+- `hs_rvc_report`: regional value content under the three rules-of-origin formulas (simple ratio, build-down, build-up) with a threshold verdict. Verified by `node --test test/*.test.mjs` (11/11).
 
 ## [Unreleased]
 
 ### Added
 
-- `hs.code_check`: structural check of an HS 2022 code — 2/4/6/8/10 digits, chapter 01-97, 98/99 reserved, dot-insensitive normalisation with distinct error codes. Read-only; it does not assert classification correctness. Verified by `node --test test/*.test.mjs` (7/7).
+- `hs_code_check`: structural check of an HS 2022 code — 2/4/6/8/10 digits, chapter 01-97, 98/99 reserved, dot-insensitive normalisation with distinct error codes. Read-only; it does not assert classification correctness. Verified by `node --test test/*.test.mjs` (7/7).
 
 ## [0.1.0-alpha.8] — 2026-11-01
 

@@ -2,7 +2,7 @@ export type HsErrorCode='E_HS_DESCRIPTION_MISSING'|'E_HS_TARIFF_VERSION'|'E_HS_E
 /** User-facing text for every error code: one plain sentence plus one next action. */
 const HS_HUMAN:Record<HsErrorCode,{text:string;next:string}>={
  E_HS_DESCRIPTION_MISSING:{text:'产品描述是空的，没法给出候选编码',next:'用一句话写清材质、用途和功能再试'},
- E_HS_TARIFF_VERSION:{text:'税则版本不是当前支持的版本',next:'先运行 hs.tariff_version 看当前版本，再按这个版本填'},
+ E_HS_TARIFF_VERSION:{text:'税则版本不是当前支持的版本',next:'先运行 hs_tariff_version 看当前版本，再按这个版本填'},
  E_HS_ELEMENT_INVALID:{text:'12 项归类要素里有格式不对的项',next:'每一项都填非空文本，数字和单位分开写'},
  E_HS_CODE_FORMAT:{text:'这不是 HS 编码：里面有字母或符号',next:'只填数字和点，例如 8471.30'},
  E_HS_CODE_LENGTH:{text:'HS 编码位数不对',next:'用 2/4/6/8/10 位，例如 8471.30 或 84713000'},

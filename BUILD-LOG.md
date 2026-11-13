@@ -6,7 +6,7 @@
 
 ### alpha.1 — public HS lookup
 
-- Added `hs.lookup`; MIT HS sample; test.
+- Added `hs_lookup`; MIT HS sample; test.
 
 ### alpha.2 — RVC check
 

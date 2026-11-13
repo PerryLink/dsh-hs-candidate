@@ -49,18 +49,18 @@ async function run() {
 
   const classifications = []
   for (const description of descriptions) {
-    const classified = await byName['hs.classify'].execute({ description }, call)
+    const classified = await byName['hs_classify'].execute({ description }, call)
     classifications.push({ description, top3: classified.top3.map((candidate) => candidate.code) })
   }
-  const completeElements = await byName['hs.elements'].execute({ elements }, call)
-  const emptyElements = await byName['hs.elements'].execute({ elements: {} }, call)
-  const tariff = await byName['hs.tariff_version'].execute({}, call)
+  const completeElements = await byName['hs_elements'].execute({ elements }, call)
+  const emptyElements = await byName['hs_elements'].execute({ elements: {} }, call)
+  const tariff = await byName['hs_tariff_version'].execute({}, call)
   const codeChecks = []
   for (const code of codes) {
-    const checked = await byName['hs.code_check'].execute({ code }, call)
+    const checked = await byName['hs_code_check'].execute({ code }, call)
     codeChecks.push({ code, valid: checked.valid, ...(checked.reason ? { reason: checked.reason } : {}) })
   }
-  const rvc = await byName['hs.rvc_report'].execute(rvcInput, call)
+  const rvc = await byName['hs_rvc_report'].execute(rvcInput, call)
 
   return {
     sample: 'samples/quickstart/input/descriptions.csv',

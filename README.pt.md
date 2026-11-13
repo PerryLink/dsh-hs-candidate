@@ -35,7 +35,7 @@ dsh plugin --profile <profile> add dsh-hs-candidate
 
 ## O que é
 
-O primeiro trecho da classificação HS: transforma uma descrição de produto (material, uso, função) em 3 códigos HS candidatos e, ao mesmo tempo, verifica se os 12 elementos de classificação estão completos. `hs.classify` devolve o Top-3 a partir de uma tabela pública de palavras-chave com base GIR e os elementos faltantes, e grava o resultado com a versão tarifária `2026.1` no domínio de armazenamento local; `hs.code_check` valida a estrutura do código e `hs.rvc_report` calcula o conteúdo regional pelas fórmulas de razão simples, build-down e build-up. Tudo roda na sua máquina: sem rede, sem chamada a modelo, sem upload, e os arquivos de entrada nunca são modificados. Os candidatos são pistas para revisão humana, não uma decisão aduaneira; o projeto é mantido ativamente desde 2026-11-01, com novos recursos, endurecimento e evidência contínua.
+O primeiro trecho da classificação HS: transforma uma descrição de produto (material, uso, função) em 3 códigos HS candidatos e, ao mesmo tempo, verifica se os 12 elementos de classificação estão completos. `hs_classify` devolve o Top-3 a partir de uma tabela pública de palavras-chave com base GIR e os elementos faltantes, e grava o resultado com a versão tarifária `2026.1` no domínio de armazenamento local; `hs_code_check` valida a estrutura do código e `hs_rvc_report` calcula o conteúdo regional pelas fórmulas de razão simples, build-down e build-up. Tudo roda na sua máquina: sem rede, sem chamada a modelo, sem upload, e os arquivos de entrada nunca são modificados. Os candidatos são pistas para revisão humana, não uma decisão aduaneira; o projeto é mantido ativamente desde 2026-11-01, com novos recursos, endurecimento e evidência contínua.
 
 - **Serve para**: listas de 20–500 produtos com material, uso e função descritos; obter códigos candidatos e uma checagem de elementos antes da classificação formal.
 - **Não serve para**: linhas só com o nome, sem material nem uso; substituir uma decisão aduaneira; gerar uma declaração de importação (este pacote só dá candidatos e checagens estruturais).
@@ -90,13 +90,13 @@ Todos os plugins PerryLink aparecem no mercado embutido do DSH Desktop: **Mercad
 
 ## Recursos principais
 
-- **Candidatos Top-3 com base GIR** — `hs.classify` junta a descrição aos elementos disponíveis, consulta a tabela pública de palavras-chave e devolve 3 candidatos, cada um com código, descrição, confiança e `gir_basis`; o primeiro usa GIR 1 mais o texto da posição, e os demais caem em GIR 1 e pedem verificação com GIR 3/6.
-- **Completude dos 12 elementos** — `hs.elements` verifica `product_name`, `material`, `function`, `use`, `composition`, `processing`, `packaging`, `brand`, `model`, `spec`, `origin` e `unit`, devolvendo a lista de faltantes mais `complete`.
-- **Selo de versão tarifária** — cada registro de classificação leva `TARIFF_VERSION=2026.1`; `hs.tariff_version` devolve a versão ativa e a lista de 12 elementos para arquivar o resultado junto da versão.
-- **Checagem da estrutura do código** — `hs.code_check` valida 2/4/6/8/10 dígitos e os capítulos 01–97; capítulos reservados 00/98/99 são rejeitados com motivo. Verifica só a estrutura, nunca se a classificação está certa.
-- **Três fórmulas de RVC** — `hs.rvc_report` calcula o conteúdo regional por razão simples, build-down e build-up; `hs.rvc_check` dá o número rápido de uma só razão com veredicto de limite.
-- **Consulta em tabela pública** — `hs.lookup` busca por código ou descrição dentro de uma tabela HS pública fornecida por você, devolvendo no máximo 5 linhas; é somente leitura e não grava registros.
-- **Armazenamento local** — `hs.classify` deriva um `classification_id` do sha256 da descrição e grava cada registro na tabela `classifications` em `$DSH_HOME/storages/hs/`; o CSV original não é tocado.
+- **Candidatos Top-3 com base GIR** — `hs_classify` junta a descrição aos elementos disponíveis, consulta a tabela pública de palavras-chave e devolve 3 candidatos, cada um com código, descrição, confiança e `gir_basis`; o primeiro usa GIR 1 mais o texto da posição, e os demais caem em GIR 1 e pedem verificação com GIR 3/6.
+- **Completude dos 12 elementos** — `hs_elements` verifica `product_name`, `material`, `function`, `use`, `composition`, `processing`, `packaging`, `brand`, `model`, `spec`, `origin` e `unit`, devolvendo a lista de faltantes mais `complete`.
+- **Selo de versão tarifária** — cada registro de classificação leva `TARIFF_VERSION=2026.1`; `hs_tariff_version` devolve a versão ativa e a lista de 12 elementos para arquivar o resultado junto da versão.
+- **Checagem da estrutura do código** — `hs_code_check` valida 2/4/6/8/10 dígitos e os capítulos 01–97; capítulos reservados 00/98/99 são rejeitados com motivo. Verifica só a estrutura, nunca se a classificação está certa.
+- **Três fórmulas de RVC** — `hs_rvc_report` calcula o conteúdo regional por razão simples, build-down e build-up; `hs_rvc_check` dá o número rápido de uma só razão com veredicto de limite.
+- **Consulta em tabela pública** — `hs_lookup` busca por código ou descrição dentro de uma tabela HS pública fornecida por você, devolvendo no máximo 5 linhas; é somente leitura e não grava registros.
+- **Armazenamento local** — `hs_classify` deriva um `classification_id` do sha256 da descrição e grava cada registro na tabela `classifications` em `$DSH_HOME/storages/hs/`; o CSV original não é tocado.
 
 ### Superfície de ferramentas
 
@@ -104,13 +104,13 @@ Os nomes de ferramenta são a API estável (mantidos em inglês para coincidir c
 
 | Ferramenta | Propósito | Risco |
 |---|---|---|
-| `hs.elements` | Verifica a completude dos 12 elementos de uma descrição e devolve os campos faltantes | R0 |
-| `hs.classify` | Devolve o Top-3 de candidatos HS de uma tabela pública com base GIR e lacunas de elementos, e grava a classificação | R1 gravação local |
-| `hs.lookup` | Busca linhas por código ou descrição numa tabela HS pública fornecida, no máximo 5 | R0 |
-| `hs.tariff_version` | Devolve a versão tarifária ativa (2026.1) e a lista de 12 elementos | R0 |
-| `hs.rvc_check` | Calcula uma razão simples de conteúdo regional com veredicto de limite | R0 |
-| `hs.code_check` | Valida a estrutura do código HS (2/4/6/8/10 dígitos, capítulos 01–97) | R0 |
-| `hs.rvc_report` | Calcula o RVC pelas fórmulas de razão simples, build-down e build-up | R0 |
+| `hs_elements` | Verifica a completude dos 12 elementos de uma descrição e devolve os campos faltantes | R0 |
+| `hs_classify` | Devolve o Top-3 de candidatos HS de uma tabela pública com base GIR e lacunas de elementos, e grava a classificação | R1 gravação local |
+| `hs_lookup` | Busca linhas por código ou descrição numa tabela HS pública fornecida, no máximo 5 | R0 |
+| `hs_tariff_version` | Devolve a versão tarifária ativa (2026.1) e a lista de 12 elementos | R0 |
+| `hs_rvc_check` | Calcula uma razão simples de conteúdo regional com veredicto de limite | R0 |
+| `hs_code_check` | Valida a estrutura do código HS (2/4/6/8/10 dígitos, capítulos 01–97) | R0 |
+| `hs_rvc_report` | Calcula o RVC pelas fórmulas de razão simples, build-down e build-up | R0 |
 
 ### Entrada e saída
 
@@ -118,7 +118,7 @@ Entrada:
 
 - CSV de descrições: UTF-8, cabeçalho `description`; a amostra incluída tem 20 linhas.
 - JSON de 12 elementos: chaves `product_name`, `material`, `function`, `use`, `composition`, `processing`, `packaging`, `brand`, `model`, `spec`, `origin`, `unit`, com texto não vazio.
-- CSV de códigos: cabeçalho `code`, cada linha vai para `hs.code_check`.
+- CSV de códigos: cabeçalho `code`, cada linha vai para `hs_code_check`.
 - JSON de entrada RVC: `fob_cents`, `non_originating_cents`, `domestic_value_cents`, e opcionais `labour_overhead_cents` e `threshold_pct`.
 - Mantenha o lote ≤ 1 MB; a amostra incluída tem cerca de 1 KB.
 
@@ -168,11 +168,11 @@ Este plugin não tem chaves `Config` do Schemastery: o `cordis.patch.yml` apenas
 
 | Parâmetro | Padrão | Significado |
 |---|---|---|
-| `threshold_pct` (`hs.rvc_check`) | `40` | Limite de RVC em porcentagem; `rvc_pct >= threshold_pct` resulta em `qualifies: true` |
-| `threshold_pct` (`hs.rvc_report`) | nenhum | Opcional; se omitido, as três fórmulas são informadas e `meets_threshold` é sempre `true` |
-| `labour_overhead_cents` (`hs.rvc_report`) | `0` | Mão de obra e custos indiretos contados na fórmula build-up |
-| `elements` (`hs.elements` / `hs.classify`) | nenhum | Objeto de 12 elementos; chaves ausentes ou vazias contam como faltantes, então só com a descrição faltam as 12 |
-| `hs_table` (`hs.lookup`) | nenhum | As linhas de tabela pública que você fornece; a consulta só busca nessa tabela, no máximo 5 linhas |
+| `threshold_pct` (`hs_rvc_check`) | `40` | Limite de RVC em porcentagem; `rvc_pct >= threshold_pct` resulta em `qualifies: true` |
+| `threshold_pct` (`hs_rvc_report`) | nenhum | Opcional; se omitido, as três fórmulas são informadas e `meets_threshold` é sempre `true` |
+| `labour_overhead_cents` (`hs_rvc_report`) | `0` | Mão de obra e custos indiretos contados na fórmula build-up |
+| `elements` (`hs_elements` / `hs_classify`) | nenhum | Objeto de 12 elementos; chaves ausentes ou vazias contam como faltantes, então só com a descrição faltam as 12 |
+| `hs_table` (`hs_lookup`) | nenhum | As linhas de tabela pública que você fornece; a consulta só busca nessa tabela, no máximo 5 linhas |
 
 ## FAQ
 
@@ -186,7 +186,7 @@ Confirme que o DSH é `>=0.2.1-rc.3 <0.4.0` e o Node `>=24.9 <25` (ver «Compati
 <details>
 <summary>Os códigos candidatos parecem errados — o que revisar?</summary>
 
-Primeiro rode `node samples/quickstart/run.mjs --check` para confirmar que a cadeia funciona e depois veja se a descrição informa material, uso e função. Os candidatos são ordenados por uma tabela pública de palavras-chave, não por uma decisão aduaneira; o código final precisa de revisão humana, e erros estruturais podem ser descartados antes com `hs.code_check`.
+Primeiro rode `node samples/quickstart/run.mjs --check` para confirmar que a cadeia funciona e depois veja se a descrição informa material, uso e função. Os candidatos são ordenados por uma tabela pública de palavras-chave, não por uma decisão aduaneira; o código final precisa de revisão humana, e erros estruturais podem ser descartados antes com `hs_code_check`.
 
 </details>
 
@@ -215,9 +215,9 @@ Não. Ferramentas, amostras e aceitação rodam localmente; o código-fonte não
 
 - **Sem rede e sem chamada a modelo.** A menos que uma ferramenta diga o contrário, não há chamada a modelo nem à rede; entrada e saída ficam locais.
 - **Arquivos originais não são modificados.** As gravações vão apenas para `$DSH_HOME/storages/hs/` (tabela `classifications`); o CSV/JSON de entrada é somente leitura.
-- **Só candidatos e checagens estruturais, nunca uma decisão.** `hs.classify` só consulta a tabela pública de palavras-chave e dá uma base GIR; `hs.code_check` só valida quantidade de dígitos e faixa de capítulos. O código final sempre exige revisão humana.
+- **Só candidatos e checagens estruturais, nunca uma decisão.** `hs_classify` só consulta a tabela pública de palavras-chave e dá uma base GIR; `hs_code_check` só valida quantidade de dígitos e faixa de capítulos. O código final sempre exige revisão humana.
 - **Erros uniformes e barulhentos.** Cada erro é uma frase simples mais o código `E_XXX` mais uma próxima ação; os sintomas / causas / ações dos três comuns (descrição vazia `E_HS_DESCRIPTION_MISSING`, tamanho ou caracteres do código errados, capítulo reservado) estão em [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
-- **Graduação de risco.** `hs.classify` grava arquivos e é R1 (gravação local); os demais são R0 (somente leitura) — ver a tabela de ferramentas em «Recursos principais».
+- **Graduação de risco.** `hs_classify` grava arquivos e é R1 (gravação local); os demais são R0 (somente leitura) — ver a tabela de ferramentas em «Recursos principais».
 
 ## Permissões e dados
 
@@ -233,7 +233,7 @@ Não. Ferramentas, amostras e aceitação rodam localmente; o código-fonte não
 - **alpha / parcial / não contabilizado / não GA.** Sem promessa de produção; não é conclusão de classificação nem de importação.
 - **Os candidatos vêm de uma tabela pública pequena.** Tem só 5 entradas reais (plásticos, ferro/aço, motores, calças de algodão, computadores portáteis) e, quando menos de 3 coincidem, a lista é completada em ordem fixa; a confiança é só uma pista de ordenação (0.9 / 0.75 / 0.6), não uma probabilidade.
 - **A versão tarifária é fixa em 2026.1.** As ferramentas não baixam nem atualizam tabelas tarifárias a quente; atualize o plugin quando a versão mudar.
-- **Estrutura válida não é classificação correta.** `hs.code_check` só valida 2/4/6/8/10 dígitos e os capítulos 01–97, rejeitando os reservados 00/98/99; ele diz se o código tem forma correta, não se pertence ali.
+- **Estrutura válida não é classificação correta.** `hs_code_check` só valida 2/4/6/8/10 dígitos e os capítulos 01–97, rejeitando os reservados 00/98/99; ele diz se o código tem forma correta, não se pertence ali.
 - **Restrições de formato de entrada.** CSV em UTF-8 com cabeçalho exato; mantenha o lote ≤ 1 MB.
 - **Os limites exatos de cada ferramenta** estão na tabela de «Recursos principais» e no `ACCEPTANCE.csv`.
 
@@ -270,14 +270,14 @@ Cada verificador é um pacote separado, com seu próprio pacote de regras e vers
 
 ```sh
 pnpm install --frozen-lockfile                              # node >=24.9 <25
-pnpm build && pnpm lint && pnpm typecheck && pnpm test      # build tsc + lint + 13 casos node --test
+pnpm build && pnpm lint && pnpm typecheck && pnpm test      # build tsc + lint + 14 casos node --test
 pnpm gate:sku13                                             # portão de aceitação SKU-13 (ACCEPTANCE.csv)
 node scripts/acceptance.mjs                                 # repetir a aceitação pública/sintética
 node samples/quickstart/run.mjs --check                     # amostra contra o arquivo dourado; deve imprimir quickstart ok
 pnpm run pack:check                                         # dry-run do conteúdo publicado (grava pack.json)
 ```
 
-Versão atual `0.1.1` (igual ao `package.json`). Testes: `node --test test/*.test.mjs` verde (7 arquivos de teste, 13 casos; `pnpm test` já inclui o build). O código TypeScript está em `src/` (`src/core/` tem a lógica de classificação, códigos e RVC; `src/plugin/` a face host e o domínio de armazenamento), a saída de build em `lib/`; os fixtures em `fixtures/public/mit/`, a amostra incluída em `samples/quickstart/` e os registros de aceitação em `evidence/`. O hero de abertura e o diagrama de estrutura são gerados por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para os quatro heroes zh/en × claro/escuro; SVG escrito à mão para o par de estrutura claro/escuro) e podem ser repetidos com `python scripts/gen-readme-assets.py`.
+Versão atual `0.2.0` (igual ao `package.json`). Testes: `node --test test/*.test.mjs` verde (8 arquivos de teste, 14 casos; `pnpm test` já inclui o build). O código TypeScript está em `src/` (`src/core/` tem a lógica de classificação, códigos e RVC; `src/plugin/` a face host e o domínio de armazenamento), a saída de build em `lib/`; os fixtures em `fixtures/public/mit/`, a amostra incluída em `samples/quickstart/` e os registros de aceitação em `evidence/`. O hero de abertura e o diagrama de estrutura são gerados por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para os quatro heroes zh/en × claro/escuro; SVG escrito à mão para o par de estrutura claro/escuro) e podem ser repetidos com `python scripts/gen-readme-assets.py`.
 
 Tópicos: `deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 

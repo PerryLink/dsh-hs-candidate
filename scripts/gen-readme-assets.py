@@ -262,7 +262,7 @@ HERO = {
         sub="按公开关键词表给候选与 GIR 依据；本机算，不联网。",
         meta="7 个工具 · TARIFF_VERSION 2026.1 · R1 只写本地",
         foot="Apache-2.0 · PerryLink DSH plugin family",
-        rec_title="归类记录 · hs.classify",
+        rec_title="归类记录 · hs_classify",
         rec_chip="R1 本地写",
         ver_chip="2026.1",
         desc_label="描述",
@@ -285,7 +285,7 @@ HERO = {
         sub="Public keyword table + GIR basis; local, no network.",
         meta="7 tools · TARIFF_VERSION 2026.1 · R1 local write only",
         foot="Apache-2.0 · PerryLink DSH plugin family",
-        rec_title="Record · hs.classify",
+        rec_title="Record · hs_classify",
         rec_chip="R1 local write",
         ver_chip="2026.1",
         desc_label="desc",
@@ -506,10 +506,10 @@ RANK = [
 ]
 
 BENCH = [
-    ("hs.code_check", "84713000 ✓ · 9999.00 保留章"),
-    ("hs.rvc_check", "50% ≥ 40 · qualifies"),
-    ("hs.rvc_report", "30 · 60 · 60 三口径"),
-    ("hs.lookup", "公开表内 ≤ 5 行"),
+    ("hs_code_check", "84713000 ✓ · 9999.00 保留章"),
+    ("hs_rvc_check", "50% ≥ 40 · qualifies"),
+    ("hs_rvc_report", "30 · 60 · 60 三口径"),
+    ("hs_lookup", "公开表内 ≤ 5 行"),
 ]
 
 
