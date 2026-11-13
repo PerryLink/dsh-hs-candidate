@@ -35,7 +35,7 @@ dsh plugin --profile <profile> add dsh-hs-candidate
 
 ## What it is
 
-The first mile of HS classification: turn a one-line product description (material, use, function) into 3 candidate HS codes while checking whether the 12 classification elements are complete. `hs.classify` returns the Top-3 from a public keyword table with a GIR basis and the missing elements, and stores the result with tariff version `2026.1` in the local storage domain; `hs.code_check` validates code structure, and `hs.rvc_report` computes regional value content under simple-ratio, build-down, and build-up formulas. Everything runs on your machine — no network, no model call, no upload, and the input files are never modified. Candidates are leads for human review, not a customs ruling; the project has been actively maintained since 2026-11-01, with new features, hardening, and fresh evidence landing continuously.
+The first mile of HS classification: turn a one-line product description (material, use, function) into 3 candidate HS codes while checking whether the 12 classification elements are complete. `hs_classify` returns the Top-3 from a public keyword table with a GIR basis and the missing elements, and stores the result with tariff version `2026.1` in the local storage domain; `hs_code_check` validates code structure, and `hs_rvc_report` computes regional value content under simple-ratio, build-down, and build-up formulas. Everything runs on your machine — no network, no model call, no upload, and the input files are never modified. Candidates are leads for human review, not a customs ruling; the project has been actively maintained since 2026-11-01, with new features, hardening, and fresh evidence landing continuously.
 
 - **Good fit**: 20–500 product rows that carry material, use, and function descriptions; getting candidate codes plus an element-gap check before formal classification.
 - **Not a fit**: rows with only a product name and no material or use; replacing a customs ruling; generating a customs declaration (this package only gives candidates and structural checks).
@@ -90,13 +90,13 @@ Every PerryLink plugin is listed in the built-in DSH Desktop market: **Market �
 
 ## Core capabilities
 
-- **Top-3 candidates with a GIR basis** — `hs.classify` joins the description with any supplied elements, queries the public keyword table, and returns 3 candidates, each with code, description, confidence, and `gir_basis`; the first uses GIR 1 plus heading text, the rest fall back to GIR 1 and ask you to verify with GIR 3/6.
-- **12-element completeness** — `hs.elements` checks `product_name`, `material`, `function`, `use`, `composition`, `processing`, `packaging`, `brand`, `model`, `spec`, `origin`, and `unit`, returning the missing list plus `complete`.
-- **Tariff version stamp** — every classification record carries `TARIFF_VERSION=2026.1`; `hs.tariff_version` returns the active version and the 12-element list so results can be archived with the tariff version.
-- **Code-structure check** — `hs.code_check` validates 2/4/6/8/10 digits and chapters 01–97; reserved chapters 00/98/99 are rejected with a reason. It checks structure only, never whether the classification is right.
-- **Three RVC formulas** — `hs.rvc_report` computes regional value content under simple-ratio, build-down, and build-up; `hs.rvc_check` gives the quick single-ratio number with a threshold verdict.
-- **Public-table lookup** — `hs.lookup` matches by code or description inside a public HS table you supply, returning at most 5 rows; read-only, no classification record.
-- **Local storage** — `hs.classify` derives a `classification_id` from the description's sha256 and writes each record to the `classifications` table under `$DSH_HOME/storages/hs/`; the original CSV is untouched.
+- **Top-3 candidates with a GIR basis** — `hs_classify` joins the description with any supplied elements, queries the public keyword table, and returns 3 candidates, each with code, description, confidence, and `gir_basis`; the first uses GIR 1 plus heading text, the rest fall back to GIR 1 and ask you to verify with GIR 3/6.
+- **12-element completeness** — `hs_elements` checks `product_name`, `material`, `function`, `use`, `composition`, `processing`, `packaging`, `brand`, `model`, `spec`, `origin`, and `unit`, returning the missing list plus `complete`.
+- **Tariff version stamp** — every classification record carries `TARIFF_VERSION=2026.1`; `hs_tariff_version` returns the active version and the 12-element list so results can be archived with the tariff version.
+- **Code-structure check** — `hs_code_check` validates 2/4/6/8/10 digits and chapters 01–97; reserved chapters 00/98/99 are rejected with a reason. It checks structure only, never whether the classification is right.
+- **Three RVC formulas** — `hs_rvc_report` computes regional value content under simple-ratio, build-down, and build-up; `hs_rvc_check` gives the quick single-ratio number with a threshold verdict.
+- **Public-table lookup** — `hs_lookup` matches by code or description inside a public HS table you supply, returning at most 5 rows; read-only, no classification record.
+- **Local storage** — `hs_classify` derives a `classification_id` from the description's sha256 and writes each record to the `classifications` table under `$DSH_HOME/storages/hs/`; the original CSV is untouched.
 
 ### Tool surface
 
@@ -104,13 +104,13 @@ Tool names are the stable API (kept in English to match the runtime output); des
 
 | Tool | Purpose | Risk |
 |---|---|---|
-| `hs.elements` | Check the 12-element completeness of a product description and return the missing fields | R0 |
-| `hs.classify` | Return Top-3 HS candidates from a public table with a GIR basis and element gaps, and store the classification | R1 local write |
-| `hs.lookup` | Look up rows by code or description in a supplied public HS table, at most 5 | R0 |
-| `hs.tariff_version` | Return the active tariff version (2026.1) and the 12-element list | R0 |
-| `hs.rvc_check` | Compute a simple regional-value-content ratio with a threshold verdict | R0 |
-| `hs.code_check` | Validate HS code structure (2/4/6/8/10 digits, chapters 01–97) | R0 |
-| `hs.rvc_report` | Compute RVC under simple-ratio, build-down, and build-up formulas | R0 |
+| `hs_elements` | Check the 12-element completeness of a product description and return the missing fields | R0 |
+| `hs_classify` | Return Top-3 HS candidates from a public table with a GIR basis and element gaps, and store the classification | R1 local write |
+| `hs_lookup` | Look up rows by code or description in a supplied public HS table, at most 5 | R0 |
+| `hs_tariff_version` | Return the active tariff version (2026.1) and the 12-element list | R0 |
+| `hs_rvc_check` | Compute a simple regional-value-content ratio with a threshold verdict | R0 |
+| `hs_code_check` | Validate HS code structure (2/4/6/8/10 digits, chapters 01–97) | R0 |
+| `hs_rvc_report` | Compute RVC under simple-ratio, build-down, and build-up formulas | R0 |
 
 ### Input & output
 
@@ -118,7 +118,7 @@ Input:
 
 - Product description CSV: UTF-8, header `description`; the bundled sample has 20 rows.
 - 12-element JSON: keys `product_name`, `material`, `function`, `use`, `composition`, `processing`, `packaging`, `brand`, `model`, `spec`, `origin`, `unit`, values are non-empty text.
-- Code list CSV: header `code`, each row handed to `hs.code_check`.
+- Code list CSV: header `code`, each row handed to `hs_code_check`.
 - RVC input JSON: `fob_cents`, `non_originating_cents`, `domestic_value_cents`, optional `labour_overhead_cents` and `threshold_pct`.
 - Keep a batch ≤ 1 MB; the bundled sample is about 1 KB.
 
@@ -168,11 +168,11 @@ This plugin has no Schemastery `Config` keys — `cordis.patch.yml` only `insert
 
 | Parameter | Default | Meaning |
 |---|---|---|
-| `threshold_pct` (`hs.rvc_check`) | `40` | RVC threshold in percent; `rvc_pct >= threshold_pct` yields `qualifies: true` |
-| `threshold_pct` (`hs.rvc_report`) | none | Optional; when omitted the three formulas are reported and `meets_threshold` is always `true` |
-| `labour_overhead_cents` (`hs.rvc_report`) | `0` | Labour and overhead counted in the build-up formula |
-| `elements` (`hs.elements` / `hs.classify`) | none | The 12-element object; missing or empty keys count as missing, so a description alone leaves all 12 missing |
-| `hs_table` (`hs.lookup`) | none | The public table rows you supply; lookup matches only inside this table, at most 5 rows |
+| `threshold_pct` (`hs_rvc_check`) | `40` | RVC threshold in percent; `rvc_pct >= threshold_pct` yields `qualifies: true` |
+| `threshold_pct` (`hs_rvc_report`) | none | Optional; when omitted the three formulas are reported and `meets_threshold` is always `true` |
+| `labour_overhead_cents` (`hs_rvc_report`) | `0` | Labour and overhead counted in the build-up formula |
+| `elements` (`hs_elements` / `hs_classify`) | none | The 12-element object; missing or empty keys count as missing, so a description alone leaves all 12 missing |
+| `hs_table` (`hs_lookup`) | none | The public table rows you supply; lookup matches only inside this table, at most 5 rows |
 
 ## FAQ
 
@@ -186,7 +186,7 @@ Check that DSH is `>=0.2.1-rc.3 <0.4.0` and Node `>=24.9 <25` (see "Compatibilit
 <details>
 <summary>The candidate codes look wrong — what should I check?</summary>
 
-First run `node samples/quickstart/run.mjs --check` to confirm the chain works, then check whether the description states material, use, and function. Candidates are ranked by a built-in public keyword table, not a customs ruling; the final code needs human review, and structural mistakes can be ruled out with `hs.code_check` first.
+First run `node samples/quickstart/run.mjs --check` to confirm the chain works, then check whether the description states material, use, and function. Candidates are ranked by a built-in public keyword table, not a customs ruling; the final code needs human review, and structural mistakes can be ruled out with `hs_code_check` first.
 
 </details>
 
@@ -215,9 +215,9 @@ No. Tools, samples, and acceptance all run locally; the source contains no HTTP 
 
 - **No network, no model call.** Unless a tool explicitly says otherwise, there is no model or network call; input and output stay local.
 - **Original files are never modified.** Writes land only in `$DSH_HOME/storages/hs/` (the `classifications` table); input CSV/JSON is read-only.
-- **Candidates and structure checks only, never a ruling.** `hs.classify` only queries the public keyword table and gives a GIR basis; `hs.code_check` only validates digit count and chapter range. The final code always needs human review.
+- **Candidates and structure checks only, never a ruling.** `hs_classify` only queries the public keyword table and gives a GIR basis; `hs_code_check` only validates digit count and chapter range. The final code always needs human review.
 - **Uniform, loud errors.** Every error is one plain sentence plus the `E_XXX` code plus one next action; the symptoms / causes / actions for the three common ones (empty description `E_HS_DESCRIPTION_MISSING`, wrong code length or characters, reserved chapter) are in [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
-- **Risk grading.** `hs.classify` writes files and is graded R1 (local write); all other tools are R0 (read-only) — see the tool table under "Core capabilities".
+- **Risk grading.** `hs_classify` writes files and is graded R1 (local write); all other tools are R0 (read-only) — see the tool table under "Core capabilities".
 
 ## Permissions & data
 
@@ -233,7 +233,7 @@ No. Tools, samples, and acceptance all run locally; the source contains no HTTP 
 - **alpha / partial / not counted / not GA.** No production-readiness claim; not a classification or customs conclusion.
 - **Candidates come from a small public keyword table.** It has only 5 real entries (plastics, iron/steel, motors, cotton trousers, portable computers), and when fewer than 3 match the list is padded in fixed order; confidence is just a ranking hint (0.9 / 0.75 / 0.6), not a probability.
 - **Tariff version is fixed at 2026.1.** The tools neither download nor hot-update tariff tables; upgrade the plugin when the version changes.
-- **Structural validity is not correct classification.** `hs.code_check` only validates 2/4/6/8/10 digits and chapters 01–97, rejecting reserved chapters 00/98/99; it tells you whether the code looks well-formed, not whether it belongs here.
+- **Structural validity is not correct classification.** `hs_code_check` only validates 2/4/6/8/10 digits and chapters 01–97, rejecting reserved chapters 00/98/99; it tells you whether the code looks well-formed, not whether it belongs here.
 - **Input format constraints.** CSV must be UTF-8 with an exact header; keep a batch ≤ 1 MB.
 - **Exact per-tool boundaries** are in the tool table under "Core capabilities" and in `ACCEPTANCE.csv`.
 
@@ -270,14 +270,14 @@ Each checker is a separate package with its own rule pack and version; install o
 
 ```sh
 pnpm install --frozen-lockfile                              # node >=24.9 <25
-pnpm build && pnpm lint && pnpm typecheck && pnpm test      # tsc build + lint + 13 node --test cases
+pnpm build && pnpm lint && pnpm typecheck && pnpm test      # tsc build + lint + 14 node --test cases
 pnpm gate:sku13                                             # SKU-13 acceptance gate (ACCEPTANCE.csv)
 node scripts/acceptance.mjs                                 # re-run public/synthetic acceptance
 node samples/quickstart/run.mjs --check                     # sample replay against the golden file; should print quickstart ok
 pnpm run pack:check                                         # publish-content dry run (writes pack.json)
 ```
 
-Current version `0.1.1` (matches `package.json`). Tests: `node --test test/*.test.mjs` is green (7 test files, 13 cases; `pnpm test` already runs the build). TypeScript sources live in `src/` (`src/core/` holds classification, code, and RVC logic; `src/plugin/` the host face and storage domain), build output in `lib/`; fixtures are in `fixtures/public/mit/`, the bundled sample in `samples/quickstart/`, and acceptance records in `evidence/`. The opening hero and the structure diagram are generated by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow for the four zh/en × light/dark heroes; hand-written SVG for the light/dark structure pair) and can be re-run with `python scripts/gen-readme-assets.py`.
+Current version `0.2.0` (matches `package.json`). Tests: `node --test test/*.test.mjs` is green (8 test files, 14 cases; `pnpm test` already runs the build). TypeScript sources live in `src/` (`src/core/` holds classification, code, and RVC logic; `src/plugin/` the host face and storage domain), build output in `lib/`; fixtures are in `fixtures/public/mit/`, the bundled sample in `samples/quickstart/`, and acceptance records in `evidence/`. The opening hero and the structure diagram are generated by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow for the four zh/en × light/dark heroes; hand-written SVG for the light/dark structure pair) and can be re-run with `python scripts/gen-readme-assets.py`.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 

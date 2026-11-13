@@ -117,13 +117,13 @@
 <text x="730" y="470" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">R0 校验台 · 只读旁路</text>
 <rect x="980.0" y="464" width="60.0" height="19" rx="9.5" fill="#f5f2fb"/>
 <text x="988.0" y="477.24" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">不写记录</text>
-<text x="730" y="496" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs.code_check</text>
+<text x="730" y="496" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs_code_check</text>
 <text x="840" y="496" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">84713000 ✓ · 9999.00 保留章</text>
-<text x="730" y="520" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs.rvc_check</text>
+<text x="730" y="520" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs_rvc_check</text>
 <text x="840" y="520" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">50% ≥ 40 · qualifies</text>
-<text x="730" y="544" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs.rvc_report</text>
+<text x="730" y="544" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs_rvc_report</text>
 <text x="840" y="544" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">30 · 60 · 60 三口径</text>
-<text x="730" y="568" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs.lookup</text>
+<text x="730" y="568" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" font-weight="700">hs_lookup</text>
 <text x="840" y="568" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">公开表内 ≤ 5 行</text>
 <line x1="44" y1="608" x2="1056" y2="608" stroke="#dcd8ea" stroke-width="1"/>
 <text x="44" y="626" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">PerryLink DSH plugin family · Apache-2.0 · 配图由 scripts/gen-readme-assets.py 生成</text>

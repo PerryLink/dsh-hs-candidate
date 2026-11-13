@@ -7,7 +7,7 @@
 
 - **症状**：`产品描述是空的，没法给出候选编码（E_HS_DESCRIPTION_MISSING）｜下一步：用一句话写清材质、用途和功能再试`
 - **原因**：`description` 传了空字符串，或只传了空格。
-- **动作**：至少写成「材质 + 用途 + 功能」，例如 `plastic housing for electric motor`，再调 `hs.classify`。
+- **动作**：至少写成「材质 + 用途 + 功能」，例如 `plastic housing for electric motor`，再调 `hs_classify`。
 
 ## 2. HS 编码位数或字符不对（E_HS_CODE_LENGTH / E_HS_CODE_FORMAT）
 
@@ -19,7 +19,7 @@
 
 - **症状**：`这个章节号（00 或 98/99）是保留章，不能直接归类（E_HS_CODE_CHAPTER_RESERVED）｜下一步：换成 01–97 章的真实编码，或交人工复核`
 - **原因**：用了 `0000` / `9999.00` 这类占位编码，或把 98/99 章当成普通商品章。
-- **动作**：换成 01–97 章的真实编码，再用 `hs.code_check` 复验；仍不确定就交人工归类，工具不做海关裁定。
+- **动作**：换成 01–97 章的真实编码，再用 `hs_code_check` 复验；仍不确定就交人工归类，工具不做海关裁定。
 
 ## 还不行
 

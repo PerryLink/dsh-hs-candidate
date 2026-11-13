@@ -35,7 +35,7 @@ dsh plugin --profile <profile> add dsh-hs-candidate
 
 ## 它是什么
 
-HS 归类的第一公里：把一句产品描述（材质、用途、功能）变成 3 个候选 HS 编码，同时检查 12 项归类要素是否填齐。`hs.classify` 按公开关键词表给出 Top-3，附 GIR 依据与要素缺项，并把结果连同税则版本 `2026.1` 写进本地存储域；`hs.code_check` 校验编码结构，`hs.rvc_report` 按简单比值、build-down、build-up 三种口径算区域价值成分。全部计算在本机完成——不联网、不调用模型、不上传，原文件不会被修改。候选是人工复核前的线索，不是海关裁定；项目自 2026-11-01 起活跃维护，新功能、加固与证据持续更新。
+HS 归类的第一公里：把一句产品描述（材质、用途、功能）变成 3 个候选 HS 编码，同时检查 12 项归类要素是否填齐。`hs_classify` 按公开关键词表给出 Top-3，附 GIR 依据与要素缺项，并把结果连同税则版本 `2026.1` 写进本地存储域；`hs_code_check` 校验编码结构，`hs_rvc_report` 按简单比值、build-down、build-up 三种口径算区域价值成分。全部计算在本机完成——不联网、不调用模型、不上传，原文件不会被修改。候选是人工复核前的线索，不是海关裁定；项目自 2026-11-01 起活跃维护，新功能、加固与证据持续更新。
 
 - **适合**：20–500 条、有材质/用途/功能描述的产品清单；在正式归类前先拿候选编码，并检查要素是否缺项。
 - **不适合**：只有品名、没有材质和用途的记录；替代海关做归类裁定；直接生成报关单（本包只给候选和结构检查）。
@@ -90,13 +90,13 @@ HS 归类的第一公里：把一句产品描述（材质、用途、功能）�
 
 ## 核心能力
 
-- **Top-3 候选 + GIR 依据** —— `hs.classify` 把描述与已填要素拼起来查公开关键词表，返回 3 个候选，每个带编码、描述、置信度与 `gir_basis`；首位用 GIR 1 加品目条文，其余用 GIR 1 兜底并提示按 GIR 3/6 复核。
-- **12 要素完整性** —— `hs.elements` 逐项检查 `product_name`、`material`、`function`、`use`、`composition`、`processing`、`packaging`、`brand`、`model`、`spec`、`origin`、`unit`，返回缺失清单与 `complete`。
-- **税则版本标记** —— 每条归类记录固定带 `TARIFF_VERSION=2026.1`；`hs.tariff_version` 返回当前版本与 12 要素清单，便于把结果和税则版本一起归档。
-- **编码结构校验** —— `hs.code_check` 校验 2/4/6/8/10 位与章节 01–97，保留章 00/98/99 会拒绝并给出原因；它只验结构，不判断归类对错。
-- **三口径 RVC** —— `hs.rvc_report` 用简单比值、build-down、build-up 三个公式算区域价值成分；`hs.rvc_check` 给单一口径的快速比值与阈值判定。
-- **公开表查询** —— `hs.lookup` 在你提供的公开 HS 表内按编码或描述匹配，最多返回 5 行；只读，不写归类记录。
-- **本地存储** —— `hs.classify` 把每条归类按描述 sha256 生成 `classification_id`，写入 `$DSH_HOME/storages/hs/` 的 `classifications` 表；原 CSV 不动。
+- **Top-3 候选 + GIR 依据** —— `hs_classify` 把描述与已填要素拼起来查公开关键词表，返回 3 个候选，每个带编码、描述、置信度与 `gir_basis`；首位用 GIR 1 加品目条文，其余用 GIR 1 兜底并提示按 GIR 3/6 复核。
+- **12 要素完整性** —— `hs_elements` 逐项检查 `product_name`、`material`、`function`、`use`、`composition`、`processing`、`packaging`、`brand`、`model`、`spec`、`origin`、`unit`，返回缺失清单与 `complete`。
+- **税则版本标记** —— 每条归类记录固定带 `TARIFF_VERSION=2026.1`；`hs_tariff_version` 返回当前版本与 12 要素清单，便于把结果和税则版本一起归档。
+- **编码结构校验** —— `hs_code_check` 校验 2/4/6/8/10 位与章节 01–97，保留章 00/98/99 会拒绝并给出原因；它只验结构，不判断归类对错。
+- **三口径 RVC** —— `hs_rvc_report` 用简单比值、build-down、build-up 三个公式算区域价值成分；`hs_rvc_check` 给单一口径的快速比值与阈值判定。
+- **公开表查询** —— `hs_lookup` 在你提供的公开 HS 表内按编码或描述匹配，最多返回 5 行；只读，不写归类记录。
+- **本地存储** —— `hs_classify` 把每条归类按描述 sha256 生成 `classification_id`，写入 `$DSH_HOME/storages/hs/` 的 `classifications` 表；原 CSV 不动。
 
 ### 工具面
 
@@ -104,13 +104,13 @@ HS 归类的第一公里：把一句产品描述（材质、用途、功能）�
 
 | 工具 | 用途 | 风险 |
 |---|---|---|
-| `hs.elements` | 检查产品描述的 12 要素完整性，返回缺失字段 | R0 |
-| `hs.classify` | 从公开表返回 Top-3 HS 候选，附 GIR 依据与要素缺项，并写入归类记录 | R1 本地写 |
-| `hs.lookup` | 在传入的公开 HS 表中按编码或描述查询，最多 5 行 | R0 |
-| `hs.tariff_version` | 返回当前税则版本（2026.1）与 12 要素清单 | R0 |
-| `hs.rvc_check` | 计算简单的区域价值成分比例，并按阈值判定 | R0 |
-| `hs.code_check` | 校验 HS 编码结构（2/4/6/8/10 位、章节 01–97） | R0 |
-| `hs.rvc_report` | 按简单比值、build-down、build-up 三口径计算 RVC | R0 |
+| `hs_elements` | 检查产品描述的 12 要素完整性，返回缺失字段 | R0 |
+| `hs_classify` | 从公开表返回 Top-3 HS 候选，附 GIR 依据与要素缺项，并写入归类记录 | R1 本地写 |
+| `hs_lookup` | 在传入的公开 HS 表中按编码或描述查询，最多 5 行 | R0 |
+| `hs_tariff_version` | 返回当前税则版本（2026.1）与 12 要素清单 | R0 |
+| `hs_rvc_check` | 计算简单的区域价值成分比例，并按阈值判定 | R0 |
+| `hs_code_check` | 校验 HS 编码结构（2/4/6/8/10 位、章节 01–97） | R0 |
+| `hs_rvc_report` | 按简单比值、build-down、build-up 三口径计算 RVC | R0 |
 
 ### 输入与输出
 
@@ -118,7 +118,7 @@ HS 归类的第一公里：把一句产品描述（材质、用途、功能）�
 
 - 产品描述 CSV：UTF-8，表头 `description`；自带样例 20 行。
 - 12 要素 JSON：键为 `product_name`、`material`、`function`、`use`、`composition`、`processing`、`packaging`、`brand`、`model`、`spec`、`origin`、`unit`，值为非空文本。
-- 编码清单 CSV：表头 `code`，逐条交给 `hs.code_check`。
+- 编码清单 CSV：表头 `code`，逐条交给 `hs_code_check`。
 - RVC 输入 JSON：`fob_cents`、`non_originating_cents`、`domestic_value_cents`，可选 `labour_overhead_cents` 与 `threshold_pct`。
 - 建议单批 ≤ 1 MB；自带样例约 1 KB。
 
@@ -168,11 +168,11 @@ PS1-QS01,quickstart 样例与金标一致,1/1,1,true,synthetic/quickstart,true
 
 | 参数 | 默认值 | 含义 |
 |---|---|---|
-| `threshold_pct`（`hs.rvc_check`） | `40` | RVC 阈值（百分比）；`rvc_pct >= threshold_pct` 即 `qualifies: true` |
-| `threshold_pct`（`hs.rvc_report`） | 无 | 可选；不传时只要算出三口径数值，`meets_threshold` 恒为 `true` |
-| `labour_overhead_cents`（`hs.rvc_report`） | `0` | 计入 build-up 口径的工费与制造费用 |
-| `elements`（`hs.elements` / `hs.classify`） | 无 | 12 要素对象；未提供或值为空的键都算缺失，因此只传描述时 12 项全缺 |
-| `hs_table`（`hs.lookup`） | 无 | 你传入的公开表行；查询只在这份表内匹配，最多返回 5 行 |
+| `threshold_pct`（`hs_rvc_check`） | `40` | RVC 阈值（百分比）；`rvc_pct >= threshold_pct` 即 `qualifies: true` |
+| `threshold_pct`（`hs_rvc_report`） | 无 | 可选；不传时只要算出三口径数值，`meets_threshold` 恒为 `true` |
+| `labour_overhead_cents`（`hs_rvc_report`） | `0` | 计入 build-up 口径的工费与制造费用 |
+| `elements`（`hs_elements` / `hs_classify`） | 无 | 12 要素对象；未提供或值为空的键都算缺失，因此只传描述时 12 项全缺 |
+| `hs_table`（`hs_lookup`） | 无 | 你传入的公开表行；查询只在这份表内匹配，最多返回 5 行 |
 
 ## FAQ
 
@@ -186,7 +186,7 @@ PS1-QS01,quickstart 样例与金标一致,1/1,1,true,synthetic/quickstart,true
 <details>
 <summary>候选编码看着不对怎么办？</summary>
 
-先跑 `node samples/quickstart/run.mjs --check` 确认链路正常，再检查描述里是否写了材质、用途和功能。候选只按内置公开关键词表排序，不是海关裁定；最终编码要人工复核，结构化问题可以先用 `hs.code_check` 排除位数或字符错误。
+先跑 `node samples/quickstart/run.mjs --check` 确认链路正常，再检查描述里是否写了材质、用途和功能。候选只按内置公开关键词表排序，不是海关裁定；最终编码要人工复核，结构化问题可以先用 `hs_code_check` 排除位数或字符错误。
 
 </details>
 
@@ -215,9 +215,9 @@ PS1-QS01,quickstart 样例与金标一致,1/1,1,true,synthetic/quickstart,true
 
 - **不联网、不调用模型。** 除非工具明确说明，否则没有模型或网络调用；输入和输出都留在本地。
 - **原文件不被修改。** 写操作只落在 `$DSH_HOME/storages/hs/`（`classifications` 表）；输入 CSV / JSON 只读。
-- **只做候选与结构检查，不做裁定。** `hs.classify` 只查公开关键词表并给 GIR 依据，`hs.code_check` 只验位数与章节范围；最终编码必须人工复核。
+- **只做候选与结构检查，不做裁定。** `hs_classify` 只查公开关键词表并给 GIR 依据，`hs_code_check` 只验位数与章节范围；最终编码必须人工复核。
 - **错误格式统一、失败响亮。** 报错统一为 `<一句人话>（E_XXX）｜下一步：<动作>`；三类常见错误（描述为空 `E_HS_DESCRIPTION_MISSING`、编码位数或字符不对、编码落在保留章）的症状 / 原因 / 动作见 [TROUBLESHOOTING.md](TROUBLESHOOTING.md)。
-- **风险分级。** 写文件的 `hs.classify` 标 R1（本地写），其余工具标 R0（只读）；逐工具见「核心能力」工具表。
+- **风险分级。** 写文件的 `hs_classify` 标 R1（本地写），其余工具标 R0（只读）；逐工具见「核心能力」工具表。
 
 ## 权限与数据
 
@@ -233,7 +233,7 @@ PS1-QS01,quickstart 样例与金标一致,1/1,1,true,synthetic/quickstart,true
 - **alpha / partial / not counted / 非 GA。** 不作生产可用声明，不构成归类或报关结论。
 - **候选来自小型公开关键词表。** 内置表只有 5 个真实条目（塑料、钢铁、电机、棉制裤、便携电脑），不足 3 个命中时按固定顺序补齐；置信度只是排序提示（0.9 / 0.75 / 0.6），不是概率。
 - **税则版本固定 2026.1。** 工具不下载、不热更新税则；版本变化时需要升级插件。
-- **编码结构不等于归类正确。** `hs.code_check` 只验 2/4/6/8/10 位与章节 01–97，保留章 00/98/99 直接拒绝；它会告诉你编码长得对不对，不会告诉你该不该归这里。
+- **编码结构不等于归类正确。** `hs_code_check` 只验 2/4/6/8/10 位与章节 01–97，保留章 00/98/99 直接拒绝；它会告诉你编码长得对不对，不会告诉你该不该归这里。
 - **输入格式约束。** CSV 为 UTF-8、表头逐字匹配；建议单批 ≤ 1 MB。
 - **每个工具的精确边界**见「核心能力」的工具表与 `ACCEPTANCE.csv`。
 
@@ -270,14 +270,14 @@ PS1-QS01,quickstart 样例与金标一致,1/1,1,true,synthetic/quickstart,true
 
 ```sh
 pnpm install --frozen-lockfile                              # node >=24.9 <25
-pnpm build && pnpm lint && pnpm typecheck && pnpm test      # tsc 构建 + lint + 13 个 node --test 用例
+pnpm build && pnpm lint && pnpm typecheck && pnpm test      # tsc 构建 + lint + 14 个 node --test 用例
 pnpm gate:sku13                                             # SKU-13 验收门禁（ACCEPTANCE.csv）
 node scripts/acceptance.mjs                                 # 重跑公开/合成验收
 node samples/quickstart/run.mjs --check                     # 合成样例对照金标，应输出 quickstart ok
 pnpm run pack:check                                         # 发布内容 dry-run 校验（生成 pack.json）
 ```
 
-当前版本 `0.1.1`（与 `package.json` 一致）。测试：`node --test test/*.test.mjs` 全绿（7 个测试文件、13 个用例；`pnpm test` 已内置构建步骤）。TypeScript 源码在 `src/`（`src/core/` 归类、编码与 RVC 逻辑，`src/plugin/` 宿主面与存储域），构建产物在 `lib/`；fixture 在 `fixtures/public/mit/`，随包样例在 `samples/quickstart/`，验收记录在 `evidence/`。开头 hero 与结构图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow 出 zh/en × 深浅四版 hero，手写 SVG 出深浅双版结构图），可重复执行：`python scripts/gen-readme-assets.py`。
+当前版本 `0.2.0`（与 `package.json` 一致）。测试：`node --test test/*.test.mjs` 全绿（8 个测试文件、14 个用例；`pnpm test` 已内置构建步骤）。TypeScript 源码在 `src/`（`src/core/` 归类、编码与 RVC 逻辑，`src/plugin/` 宿主面与存储域），构建产物在 `lib/`；fixture 在 `fixtures/public/mit/`，随包样例在 `samples/quickstart/`，验收记录在 `evidence/`。开头 hero 与结构图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow 出 zh/en × 深浅四版 hero，手写 SVG 出深浅双版结构图），可重复执行：`python scripts/gen-readme-assets.py`。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 
