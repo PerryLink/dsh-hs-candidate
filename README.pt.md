@@ -146,6 +146,11 @@ node samples/quickstart/run.mjs --check
 
 *20 descrições sintéticas → Top-3 por descrição → checagem dos 12 elementos → versão tarifária 2026.1 → 5 checagens de código → RVC com 3 fórmulas; o arquivo dourado é `samples/quickstart/expected/result.json`, comando e hashes em `screenshots.json`.*
 
+![Saída real do quickstart do dsh-hs-candidate](docs/assets/dsh-hs-candidate-demo.gif)
+
+*A versão animada da mesma execução.*
+
+
 Aceitação com fixture público: entrada [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json) (amostra pública MIT, 6 linhas); rode de novo `node scripts/acceptance.mjs`, detalhes em `ACCEPTANCE.csv`:
 
 ```csv

@@ -146,6 +146,11 @@ node samples/quickstart/run.mjs --check
 
 *20 条合成描述 → 每条 Top-3 候选 → 12 要素检查 → 税则版本 2026.1 → 5 条编码检查 → 3 口径 RVC；金标为 `samples/quickstart/expected/result.json`，命令与哈希见 `screenshots.json`。*
 
+![dsh-hs-candidate quickstart 真实运行输出](docs/assets/dsh-hs-candidate-demo.gif)
+
+*同一段真实运行的动图版本。*
+
+
 公开 fixture 验收：输入 [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json)（公开 MIT 样本，6 行），重跑 `node scripts/acceptance.mjs`，明细见 `ACCEPTANCE.csv`：
 
 ```csv

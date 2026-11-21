@@ -146,6 +146,11 @@ node samples/quickstart/run.mjs --check
 
 *20 synthetic descriptions → Top-3 candidates each → 12-element check → tariff version 2026.1 → 5 code checks → 3 RVC formulas; the golden file is `samples/quickstart/expected/result.json`, command and hashes in `screenshots.json`.*
 
+![Real dsh-hs-candidate quickstart output](docs/assets/dsh-hs-candidate-demo.gif)
+
+*The animated version of the same run.*
+
+
 Public fixture acceptance: input [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json) (public MIT sample, 6 rows); re-run `node scripts/acceptance.mjs`, details in `ACCEPTANCE.csv`:
 
 ```csv

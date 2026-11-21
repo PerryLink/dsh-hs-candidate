@@ -146,6 +146,11 @@ node samples/quickstart/run.mjs --check
 
 *20 सिंथेटिक विवरण → हर एक के टॉप-3 उम्मीदवार → 12 तत्व जाँच → टैरिफ़ संस्करण 2026.1 → 5 कोड जाँच → 3 सूत्रों वाला RVC; गोल्डन फ़ाइल `samples/quickstart/expected/result.json`, कमांड और हैश `screenshots.json` में।*
 
+![dsh-hs-candidate quickstart का वास्तविक आउटपुट](docs/assets/dsh-hs-candidate-demo.gif)
+
+*उसी असली रन का एनिमेटेड संस्करण।*
+
+
 सार्वजनिक fixture स्वीकृति: इनपुट [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json) (सार्वजनिक MIT नमूना, 6 पंक्तियाँ); `node scripts/acceptance.mjs` फिर चलाएँ, विवरण `ACCEPTANCE.csv` में:
 
 ```csv
