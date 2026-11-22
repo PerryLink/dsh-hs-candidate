@@ -11,6 +11,8 @@
 
 Um assistente de classificação HS puramente local para o DeepSeek Harness: candidatos de tabela pública com base GIR, validação da estrutura de códigos e RVC com três fórmulas; sem rede, sem chamada a modelo e sem se arrogar uma decisão aduaneira.
 
+Última verificação: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Instalação](#instalação-em-três-passos) · [Configuração](#configuração) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -150,7 +152,6 @@ node samples/quickstart/run.mjs --check
 
 *A versão animada da mesma execução.*
 
-
 Aceitação com fixture público: entrada [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json) (amostra pública MIT, 6 linhas); rode de novo `node scripts/acceptance.mjs`, detalhes em `ACCEPTANCE.csv`:
 
 ```csv
@@ -282,7 +283,7 @@ node samples/quickstart/run.mjs --check                     # amostra contra o a
 pnpm run pack:check                                         # dry-run do conteúdo publicado (grava pack.json)
 ```
 
-Versão atual `0.2.0` (igual ao `package.json`). Testes: `node --test test/*.test.mjs` verde (8 arquivos de teste, 14 casos; `pnpm test` já inclui o build). O código TypeScript está em `src/` (`src/core/` tem a lógica de classificação, códigos e RVC; `src/plugin/` a face host e o domínio de armazenamento), a saída de build em `lib/`; os fixtures em `fixtures/public/mit/`, a amostra incluída em `samples/quickstart/` e os registros de aceitação em `evidence/`. O hero de abertura e o diagrama de estrutura são gerados por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para os quatro heroes zh/en × claro/escuro; SVG escrito à mão para o par de estrutura claro/escuro) e podem ser repetidos com `python scripts/gen-readme-assets.py`.
+Versão atual `0.2.1` (igual ao `package.json`). Testes: `node --test test/*.test.mjs` verde (8 arquivos de teste, 14 casos; `pnpm test` já inclui o build). O código TypeScript está em `src/` (`src/core/` tem a lógica de classificação, códigos e RVC; `src/plugin/` a face host e o domínio de armazenamento), a saída de build em `lib/`; os fixtures em `fixtures/public/mit/`, a amostra incluída em `samples/quickstart/` e os registros de aceitação em `evidence/`. O hero de abertura e o diagrama de estrutura são gerados por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para os quatro heroes zh/en × claro/escuro; SVG escrito à mão para o par de estrutura claro/escuro) e podem ser repetidos com `python scripts/gen-readme-assets.py`.
 
 Tópicos: `deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 

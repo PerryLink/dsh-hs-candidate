@@ -11,6 +11,8 @@
 
 DeepSeek Harness के लिए शुद्ध स्थानीय HS वर्गीकरण सहायक: सार्वजनिक तालिका से GIR आधार सहित उम्मीदवार, कोड संरचना की जाँच और तीन सूत्रों वाला RVC; कोई नेटवर्क नहीं, कोई मॉडल कॉल नहीं, और सीमा शुल्क निर्णय का दावा नहीं।
 
+अंतिम सत्यापन: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [इंस्टॉल](#तीन-चरणों-में-शुरुआत) · [कॉन्फ़िगरेशन](#कॉन्फ़िगरेशन) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -150,7 +152,6 @@ node samples/quickstart/run.mjs --check
 
 *उसी असली रन का एनिमेटेड संस्करण।*
 
-
 सार्वजनिक fixture स्वीकृति: इनपुट [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json) (सार्वजनिक MIT नमूना, 6 पंक्तियाँ); `node scripts/acceptance.mjs` फिर चलाएँ, विवरण `ACCEPTANCE.csv` में:
 
 ```csv
@@ -282,7 +283,7 @@ node samples/quickstart/run.mjs --check                     # नमूना �
 pnpm run pack:check                                         # प्रकाशित सामग्री का dry-run (pack.json लिखता है)
 ```
 
-वर्तमान संस्करण `0.2.0` (`package.json` से मेल)। परीक्षण: `node --test test/*.test.mjs` हरा है (8 टेस्ट फ़ाइलें, 14 केस; `pnpm test` में बिल्ड पहले से शामिल है)। TypeScript स्रोत `src/` में (`src/core/` में वर्गीकरण, कोड और RVC तर्क; `src/plugin/` में होस्ट फ़ेस और स्टोरेज डोमेन), बिल्ड आउटपुट `lib/` में; fixture `fixtures/public/mit/` में, साथ दिया नमूना `samples/quickstart/` में और स्वीकृति रिकॉर्ड `evidence/` में। शुरुआती हीरो और संरचना आरेख [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से बनते हैं (Pillow से zh/en × हल्का/गहरा चार हीरो; हाथ से लिखा SVG हल्का/गहरा संरचना जोड़ा) और `python scripts/gen-readme-assets.py` से दोबारा बनाए जा सकते हैं।
+वर्तमान संस्करण `0.2.1` (`package.json` से मेल)। परीक्षण: `node --test test/*.test.mjs` हरा है (8 टेस्ट फ़ाइलें, 14 केस; `pnpm test` में बिल्ड पहले से शामिल है)। TypeScript स्रोत `src/` में (`src/core/` में वर्गीकरण, कोड और RVC तर्क; `src/plugin/` में होस्ट फ़ेस और स्टोरेज डोमेन), बिल्ड आउटपुट `lib/` में; fixture `fixtures/public/mit/` में, साथ दिया नमूना `samples/quickstart/` में और स्वीकृति रिकॉर्ड `evidence/` में। शुरुआती हीरो और संरचना आरेख [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से बनते हैं (Pillow से zh/en × हल्का/गहरा चार हीरो; हाथ से लिखा SVG हल्का/गहरा संरचना जोड़ा) और `python scripts/gen-readme-assets.py` से दोबारा बनाए जा सकते हैं।
 
 विषय: `deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 

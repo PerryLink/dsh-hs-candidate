@@ -11,6 +11,8 @@
 
 面向 DeepSeek Harness 的纯本地 HS 归类助手：按公开税则表给候选、附 GIR 依据、校验编码结构、按三种口径算 RVC；不联网、不调用模型，也不替海关做裁定。
 
+最近一次核验：DeepSeek Harness `dsh-v0.2.3-alpha.1`（2026-11-22）。
+
 [安装](#三步上手) · [配置](#配置) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -150,7 +152,6 @@ node samples/quickstart/run.mjs --check
 
 *同一段真实运行的动图版本。*
 
-
 公开 fixture 验收：输入 [`fixtures/public/mit/hs-sample.json`](https://github.com/PerryLink/dsh-hs-candidate/blob/main/fixtures/public/mit/hs-sample.json)（公开 MIT 样本，6 行），重跑 `node scripts/acceptance.mjs`，明细见 `ACCEPTANCE.csv`：
 
 ```csv
@@ -282,7 +283,7 @@ node samples/quickstart/run.mjs --check                     # 合成样例对照
 pnpm run pack:check                                         # 发布内容 dry-run 校验（生成 pack.json）
 ```
 
-当前版本 `0.2.0`（与 `package.json` 一致）。测试：`node --test test/*.test.mjs` 全绿（8 个测试文件、14 个用例；`pnpm test` 已内置构建步骤）。TypeScript 源码在 `src/`（`src/core/` 归类、编码与 RVC 逻辑，`src/plugin/` 宿主面与存储域），构建产物在 `lib/`；fixture 在 `fixtures/public/mit/`，随包样例在 `samples/quickstart/`，验收记录在 `evidence/`。开头 hero 与结构图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow 出 zh/en × 深浅四版 hero，手写 SVG 出深浅双版结构图），可重复执行：`python scripts/gen-readme-assets.py`。
+当前版本 `0.2.1`（与 `package.json` 一致）。测试：`node --test test/*.test.mjs` 全绿（8 个测试文件、14 个用例；`pnpm test` 已内置构建步骤）。TypeScript 源码在 `src/`（`src/core/` 归类、编码与 RVC 逻辑，`src/plugin/` 宿主面与存储域），构建产物在 `lib/`；fixture 在 `fixtures/public/mit/`，随包样例在 `samples/quickstart/`，验收记录在 `evidence/`。开头 hero 与结构图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow 出 zh/en × 深浅四版 hero，手写 SVG 出深浅双版结构图），可重复执行：`python scripts/gen-readme-assets.py`。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 

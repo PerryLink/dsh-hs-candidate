@@ -38,6 +38,10 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-22
+
+- Compatibility: declare DeepSeek Harness 0.2.3-alpha.1 support (>=0.2.3-0 <0.3.0-0 in engines.dsh and every @deepseek-ai/dsh-* peer range) and refresh README verification stamps.
+
 ### Added
 
 - `hs_code_check`: structural check of an HS 2022 code — 2/4/6/8/10 digits, chapter 01-97, 98/99 reserved, dot-insensitive normalisation with distinct error codes. Read-only; it does not assert classification correctness. Verified by `node --test test/*.test.mjs` (7/7).
