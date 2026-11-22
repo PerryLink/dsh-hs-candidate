@@ -283,7 +283,7 @@ node samples/quickstart/run.mjs --check                     # 合成样例对照
 pnpm run pack:check                                         # 发布内容 dry-run 校验（生成 pack.json）
 ```
 
-当前版本 `0.2.1`（与 `package.json` 一致）。测试：`node --test test/*.test.mjs` 全绿（8 个测试文件、14 个用例；`pnpm test` 已内置构建步骤）。TypeScript 源码在 `src/`（`src/core/` 归类、编码与 RVC 逻辑，`src/plugin/` 宿主面与存储域），构建产物在 `lib/`；fixture 在 `fixtures/public/mit/`，随包样例在 `samples/quickstart/`，验收记录在 `evidence/`。开头 hero 与结构图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow 出 zh/en × 深浅四版 hero，手写 SVG 出深浅双版结构图），可重复执行：`python scripts/gen-readme-assets.py`。
+当前版本 `0.2.2`（与 `package.json` 一致）。测试：`node --test test/*.test.mjs` 全绿（8 个测试文件、14 个用例；`pnpm test` 已内置构建步骤）。TypeScript 源码在 `src/`（`src/core/` 归类、编码与 RVC 逻辑，`src/plugin/` 宿主面与存储域），构建产物在 `lib/`；fixture 在 `fixtures/public/mit/`，随包样例在 `samples/quickstart/`，验收记录在 `evidence/`。开头 hero 与结构图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow 出 zh/en × 深浅四版 hero，手写 SVG 出深浅双版结构图），可重复执行：`python scripts/gen-readme-assets.py`。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `hs`, `customs`, `tariff`, `perrylink`, `trade`
 
